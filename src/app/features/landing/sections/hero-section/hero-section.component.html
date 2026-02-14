@@ -1,0 +1,27 @@
+<section class="hero-section">
+  <div class="hero-container">
+    <!-- Left Column: Content -->
+    <div class="hero-content">
+      <h1 class="hero-headline">{{ translations.headline }}</h1>
+      <p class="hero-description">{{ translations.description }}</p>
+      
+      <div class="hero-cta">
+        <button class="btn btn-primary" (click)="onPrimaryClick()" matRipple>
+          {{ translations.primaryCta }}
+        </button>
+        <button class="btn btn-secondary" (click)="onSecondaryClick()" matRipple>
+          {{ translations.secondaryCta }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Column: Image -->
+    <div class="hero-image">
+      <img 
+        src="https://placehold.co/600x400/1A2B4A/FFFFFF?text=PK-Chat" 
+        alt="PK-Chat Platform Preview"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/typography';
+
+.cta-section {
+  background-color: $bg-page;
+  padding: 80px $spacing-relaxed;
+
+  @include tablet {
+    padding: 60px $spacing-standard;
+  }
+
+  @include mobile {
+    padding: 40px $spacing-standard;
+  }
+}
+
+.cta-container {
+  @include container($max-width-narrow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-comfortable;
+}
+
+.cta-title {
+  @include typography-headline;
+  color: $text-primary;
+
+  @include mobile {
+    font-size: $font-size-page-title;
+  }
+}
+
+.cta-description {
+  @include typography-body;
+  color: $text-secondary;
+  line-height: $line-height-comfortable;
+  max-width: 600px;
+}
+
+.btn {
+  @include button-reset;
+  @include typography-body-emphasized;
+  padding: 16px 40px;
+  border-radius: $radius-medium;
+  @include smooth-transition(all);
+  margin-top: $spacing-compact;
+  min-height: 44px;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  &.btn-primary {
+    background-color: $accent-gold;
+    color: $primary-base;
+    box-shadow: $shadow-moderate;
+
+    &:hover {
+      box-shadow: $shadow-pronounced;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Trust Indicators
+.trust-indicators {
+  display: flex;
+  gap: $spacing-relaxed;
+  margin-top: $spacing-standard;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-standard;
+  }
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-compact;
+  color: $text-secondary;
+
+  .trust-icon {
+    font-size: 24px;
+    color: $accent-gold;
+  }
+
+  .trust-text {
+    @include typography-body;
+    white-space: nowrap;
+
+    @include mobile {
+      white-space: normal;
+    }
+  }
+}

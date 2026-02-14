@@ -1,0 +1,70 @@
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand Column -->
+    <div class="footer-column">
+      <div class="footer-brand">
+        <iconify-icon icon="lucide:users" class="brand-icon"></iconify-icon>
+        <span class="brand-text">{{ translations.brand?.name }}</span>
+      </div>
+      <p class="footer-description">{{ translations.brand?.description }}</p>
+    </div>
+
+    <!-- Quick Links Column -->
+    <div class="footer-column">
+      <h3 class="footer-title">{{ translations.quickLinks?.title }}</h3>
+      <ul class="footer-links">
+        <li><a href="#about">{{ translations.quickLinks?.about }}</a></li>
+        <li><a href="#features">{{ translations.quickLinks?.features }}</a></li>
+        <li><a href="#pricing">{{ translations.quickLinks?.pricing }}</a></li>
+        <li><a href="#help">{{ translations.quickLinks?.help }}</a></li>
+      </ul>
+    </div>
+
+    <!-- Legal Column -->
+    <div class="footer-column">
+      <h3 class="footer-title">{{ translations.legal?.title }}</h3>
+      <ul class="footer-links">
+        <li><a href="#privacy">{{ translations.legal?.privacy }}</a></li>
+        <li><a href="#terms">{{ translations.legal?.terms }}</a></li>
+        <li><a href="#notice">{{ translations.legal?.notice }}</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Column -->
+    <div class="footer-column">
+      <h3 class="footer-title">{{ translations.contact?.title }}</h3>
+      <ul class="footer-links">
+        <li>
+          <a href="mailto:{{ translations.contact?.email }}">
+            <iconify-icon icon="lucide:mail"></iconify-icon>
+            {{ translations.contact?.email }}
+          </a>
+        </li>
+        <li>
+          <a href="tel:{{ translations.contact?.phone }}">
+            <iconify-icon icon="lucide:phone"></iconify-icon>
+            {{ translations.contact?.phone }}
+          </a>
+        </li>
+      </ul>
+      <div class="social-links">
+        <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+          <iconify-icon icon="simple-icons:x"></iconify-icon>
+        </a>
+        <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <iconify-icon icon="simple-icons:facebook"></iconify-icon>
+        </a>
+        <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-container">
+      <p class="copyright">{{ translations.copyright }}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,59 @@
+<header class="header">
+  <div class="header-container">
+    <!-- Logo and Brand -->
+    <div class="header-brand">
+      <iconify-icon icon="lucide:users" class="brand-icon"></iconify-icon>
+      <span class="brand-text">{{ translations.brand }}</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="header-nav desktop-nav">
+      <a href="#features" class="nav-link">{{ translations.features }}</a>
+      <a href="#about" class="nav-link">{{ translations.about }}</a>
+      <a href="#pricing" class="nav-link">{{ translations.pricing }}</a>
+    </nav>
+
+    <!-- Right Section -->
+    <div class="header-actions">
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button
+          *ngFor="let lang of languageOptions"
+          class="lang-button"
+          [class.active]="currentLanguage === lang.code"
+          (click)="switchLanguage(lang.code)"
+          [attr.aria-label]="'Switch to ' + lang.label"
+        >
+          {{ lang.label }}
+        </button>
+      </div>
+
+      <!-- Desktop CTA Buttons -->
+      <div class="cta-buttons desktop-cta">
+        <button class="btn btn-text">{{ translations.login }}</button>
+        <button class="btn btn-primary">{{ translations.signup }}</button>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button 
+        class="mobile-menu-toggle" 
+        (click)="toggleMobileMenu()"
+        [attr.aria-label]="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
+        [attr.aria-expanded]="isMobileMenuOpen"
+      >
+        <iconify-icon [icon]="isMobileMenuOpen ? 'lucide:x' : 'lucide:menu'"></iconify-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" [class.open]="isMobileMenuOpen">
+    <a href="#features" class="mobile-nav-link" (click)="closeMobileMenu()">{{ translations.features }}</a>
+    <a href="#about" class="mobile-nav-link" (click)="closeMobileMenu()">{{ translations.about }}</a>
+    <a href="#pricing" class="mobile-nav-link" (click)="closeMobileMenu()">{{ translations.pricing }}</a>
+    <div class="mobile-cta">
+      <button class="btn btn-text" (click)="closeMobileMenu()">{{ translations.login }}</button>
+      <button class="btn btn-primary" (click)="closeMobileMenu()">{{ translations.signup }}</button>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,17 @@
+<section class="cta-section">
+  <div class="cta-container">
+    <h2 class="cta-title">{{ translations.title }}</h2>
+    <p class="cta-description">{{ translations.description }}</p>
+    
+    <button class="btn btn-primary" (click)="onCtaClick()" matRipple>
+      {{ translations.button }}
+    </button>
+
+    <div class="trust-indicators">
+      <div class="trust-item" *ngFor="let indicator of trustIndicators">
+        <iconify-icon [icon]="indicator.icon" class="trust-icon"></iconify-icon>
+        <span class="trust-text">{{ indicator.text }}</span>
+      </div>
+    </div>
+  </div>
+</section>

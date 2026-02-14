@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Import Design System
+@import 'styles/variables';
+@import 'styles/typography';
+@import 'styles/mixins';
+
+// Global Reset and Base Styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-body;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $bg-page;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $font-weight-semibold;
+}
+
+p {
+  margin: 0;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+  @include smooth-transition(color);
+
+  &:hover {
+    color: $accent-gold;
+  }
+}
+
+// Button Base
+button {
+  font-family: $font-family-base;
+  cursor: pointer;
+}
+
+// Accessibility - Skip to main content
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: $primary-base;
+  color: $text-on-dark-primary;
+  text-decoration: none;
+
+  &:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+  }
+}

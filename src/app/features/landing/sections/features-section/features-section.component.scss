@@ -1,0 +1,104 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/typography';
+
+.features-section {
+  background-color: white;
+  padding: 80px $spacing-relaxed;
+
+  @include tablet {
+    padding: 60px $spacing-standard;
+  }
+
+  @include mobile {
+    padding: 40px $spacing-standard;
+  }
+}
+
+.features-container {
+  @include container($max-width-content);
+}
+
+// Section Header
+.features-header {
+  text-align: center;
+  margin-bottom: 64px;
+
+  @include mobile {
+    margin-bottom: $spacing-section;
+  }
+}
+
+.features-title {
+  @include typography-headline;
+  color: $text-primary;
+  margin-bottom: $spacing-standard;
+
+  @include mobile {
+    font-size: $font-size-page-title;
+  }
+}
+
+.features-description {
+  @include typography-body;
+  color: $text-secondary;
+  line-height: $line-height-comfortable;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Features Grid
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-relaxed;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-comfortable;
+  }
+}
+
+// Feature Card
+.feature-card {
+  background-color: white;
+  border-radius: $radius-extra-large;
+  padding: $spacing-relaxed;
+  box-shadow: $shadow-moderate;
+  @include smooth-transition(box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-standard;
+
+  &:hover {
+    box-shadow: $shadow-pronounced;
+  }
+}
+
+.feature-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  .feature-icon {
+    font-size: 24px;
+    color: white;
+  }
+}
+
+.feature-title {
+  @include typography-card-title;
+  color: $text-primary;
+  margin: 0;
+}
+
+.feature-description {
+  @include typography-body;
+  color: $text-secondary;
+  line-height: $line-height-comfortable;
+  margin: 0;
+}

@@ -1,0 +1,128 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/typography';
+
+.footer {
+  background-color: $primary-base;
+  color: $text-on-dark-primary;
+  padding: $spacing-section $spacing-relaxed;
+}
+
+.footer-container {
+  @include container($max-width-container);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-relaxed;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Brand Section
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-compact;
+  margin-bottom: $spacing-standard;
+
+  .brand-icon {
+    font-size: 28px;
+    color: $accent-gold;
+  }
+
+  .brand-text {
+    font-size: $font-size-card-title;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.footer-description {
+  @include typography-body;
+  color: $text-on-dark-secondary;
+  line-height: $line-height-comfortable;
+  margin-top: $spacing-compact;
+}
+
+// Footer Columns
+.footer-column {
+  .footer-title {
+    @include typography-body-emphasized;
+    color: $text-on-dark-primary;
+    margin-bottom: $spacing-standard;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-compact;
+
+    li {
+      a {
+        @include typography-body;
+        color: $text-on-dark-secondary;
+        display: flex;
+        align-items: center;
+        gap: $spacing-tight;
+        @include smooth-transition(color);
+
+        &:hover {
+          color: $text-on-dark-primary;
+        }
+
+        iconify-icon {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Social Links
+.social-links {
+  display: flex;
+  gap: $spacing-standard;
+  margin-top: $spacing-comfortable;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: $radius-small;
+    color: $text-on-dark-primary;
+    @include smooth-transition(all);
+
+    &:hover {
+      background-color: $accent-gold;
+      color: $primary-base;
+      transform: translateY(-2px);
+    }
+
+    iconify-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+// Bottom Bar
+.footer-bottom {
+  margin-top: $spacing-relaxed;
+  padding-top: $spacing-relaxed;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .copyright {
+    @include typography-caption;
+    color: $text-on-dark-secondary;
+    text-align: center;
+  }
+}

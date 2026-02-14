@@ -1,0 +1,129 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/typography';
+
+.hero-section {
+  background-color: $bg-page;
+  padding: 80px $spacing-relaxed;
+
+  @include tablet {
+    padding: 60px $spacing-standard;
+  }
+
+  @include mobile {
+    padding: 40px $spacing-standard;
+  }
+}
+
+.hero-container {
+  @include container($max-width-container);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+
+  @include tablet-and-mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-relaxed;
+  }
+}
+
+// Content Column
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-comfortable;
+}
+
+.hero-headline {
+  @include typography-hero;
+  color: $text-primary;
+
+  @include tablet {
+    font-size: 36px;
+  }
+
+  @include mobile {
+    font-size: 28px;
+  }
+}
+
+.hero-description {
+  font-size: $font-size-subtitle;
+  line-height: $line-height-comfortable;
+  color: $text-secondary;
+
+  @include mobile {
+    font-size: $font-size-body;
+  }
+}
+
+.hero-cta {
+  display: flex;
+  gap: $spacing-standard;
+  margin-top: $spacing-compact;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-compact;
+  }
+}
+
+.btn {
+  @include button-reset;
+  @include typography-body-emphasized;
+  padding: 14px 32px;
+  border-radius: $radius-medium;
+  @include smooth-transition(all);
+  white-space: nowrap;
+  min-height: 44px;
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
+
+  &.btn-primary {
+    background-color: $accent-gold;
+    color: $primary-base;
+    box-shadow: $shadow-moderate;
+
+    &:hover {
+      box-shadow: $shadow-pronounced;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: transparent;
+    color: $primary-base;
+    border: 2px solid $primary-base;
+
+    &:hover {
+      background-color: $primary-base;
+      color: white;
+    }
+  }
+}
+
+// Image Column
+.hero-image {
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-extra-large;
+    box-shadow: $shadow-pronounced;
+    object-fit: cover;
+    display: block;
+  }
+
+  @include tablet-and-mobile {
+    order: 2;
+  }
+}

@@ -1,0 +1,205 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/typography';
+
+.header {
+  background-color: $bg-nav-primary;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: $shadow-moderate;
+}
+
+.header-container {
+  @include container($max-width-container);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: $spacing-standard;
+  padding-bottom: $spacing-standard;
+  gap: $spacing-comfortable;
+}
+
+// Brand Section
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-compact;
+  color: $text-on-dark-primary;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-card-title;
+
+  .brand-icon {
+    font-size: 28px;
+    color: $accent-gold;
+  }
+
+  .brand-text {
+    white-space: nowrap;
+  }
+}
+
+// Desktop Navigation
+.header-nav {
+  display: flex;
+  gap: $spacing-relaxed;
+
+  .nav-link {
+    color: $text-on-dark-primary;
+    @include typography-body;
+    @include smooth-transition(color);
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.desktop-nav {
+  @include tablet-and-mobile {
+    display: none;
+  }
+}
+
+// Header Actions
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-standard;
+}
+
+// Language Switcher
+.language-switcher {
+  display: flex;
+  gap: $spacing-tight;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: $radius-small;
+  padding: 4px;
+
+  .lang-button {
+    @include button-reset;
+    padding: 6px 12px;
+    border-radius: $radius-small;
+    color: $text-on-dark-secondary;
+    @include typography-caption;
+    font-weight: $font-weight-semibold;
+    @include smooth-transition(all);
+
+    &:hover {
+      color: $text-on-dark-primary;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+      color: $primary-base;
+      background-color: $accent-gold;
+    }
+  }
+}
+
+// CTA Buttons
+.cta-buttons {
+  display: flex;
+  gap: $spacing-compact;
+}
+
+.desktop-cta {
+  @include tablet-and-mobile {
+    display: none;
+  }
+}
+
+.btn {
+  @include button-reset;
+  @include typography-body-emphasized;
+  padding: 10px 20px;
+  border-radius: $radius-small;
+  @include smooth-transition(all);
+  white-space: nowrap;
+
+  &.btn-text {
+    color: $text-on-dark-primary;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &.btn-primary {
+    background-color: $accent-gold;
+    color: $primary-base;
+    box-shadow: $shadow-moderate;
+
+    &:hover {
+      box-shadow: $shadow-pronounced;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Mobile Menu Toggle
+.mobile-menu-toggle {
+  @include button-reset;
+  display: none;
+  color: $text-on-dark-primary;
+  font-size: 24px;
+  padding: $spacing-tight;
+
+  @include tablet-and-mobile {
+    display: block;
+  }
+
+  iconify-icon {
+    display: block;
+  }
+}
+
+// Mobile Menu
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: $primary-lighter;
+  padding: $spacing-standard;
+  gap: $spacing-compact;
+  max-height: 0;
+  overflow: hidden;
+  @include smooth-transition(max-height, 0.3s, ease-in-out);
+
+  @include tablet-and-mobile {
+    display: flex;
+  }
+
+  &.open {
+    max-height: 400px;
+  }
+
+  .mobile-nav-link {
+    color: $text-on-dark-primary;
+    @include typography-body;
+    padding: $spacing-compact;
+    border-radius: $radius-small;
+    @include smooth-transition(background-color);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-compact;
+    margin-top: $spacing-compact;
+    padding-top: $spacing-standard;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
