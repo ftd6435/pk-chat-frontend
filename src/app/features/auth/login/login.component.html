@@ -1,0 +1,111 @@
+<app-auth-header [pageType]="'login'"></app-auth-header>
+
+<main class="login-page">
+  <div class="login-container">
+    <!-- Page Title Section -->
+    <div class="login-header">
+      <h1 class="login-header__title">{{ translationService.translate('auth.login.title') }}</h1>
+      <p class="login-header__subtitle">{{ translationService.translate('auth.login.subtitle') }}</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="login-card">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        
+        <!-- Username or Phone Field -->
+        <div class="form-field">
+          <label class="form-field__label" for="identifier">
+            {{ translationService.translate('auth.login.fields.identifier.label') }}
+          </label>
+          <input
+            id="identifier"
+            type="text"
+            formControlName="identifier"
+            class="form-field__input"
+            [class.form-field__input--error]="isFieldInvalid('identifier')"
+            [placeholder]="translationService.translate('auth.login.fields.identifier.placeholder')"
+          />
+          <span *ngIf="isFieldInvalid('identifier')" class="form-field__error">
+            {{ getFieldError('identifier') }}
+          </span>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-field">
+          <label class="form-field__label" for="password">
+            {{ translationService.translate('auth.login.fields.password.label') }}
+          </label>
+          <div class="form-field__input-wrapper">
+            <input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              class="form-field__input"
+              [class.form-field__input--error]="isFieldInvalid('password')"
+              [placeholder]="translationService.translate('auth.login.fields.password.placeholder')"
+            />
+            <button
+              type="button"
+              class="form-field__toggle"
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+            >
+              <svg *ngIf="!showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <svg *ngIf="showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+          <span *ngIf="isFieldInvalid('password')" class="form-field__error">
+            {{ getFieldError('password') }}
+          </span>
+        </div>
+
+        <!-- Remember Me + Forgot Password Row -->
+        <div class="form-row">
+          <label class="checkbox-label checkbox-label--inline">
+            <input
+              type="checkbox"
+              formControlName="rememberMe"
+              class="checkbox-label__input"
+            />
+            <span class="checkbox-label__text">
+              {{ translationService.translate('auth.login.fields.rememberMe') }}
+            </span>
+          </label>
+          
+          <a routerLink="/mot-de-passe-oublie" class="forgot-password-link">
+            {{ translationService.translate('auth.login.fields.forgotPassword') }}
+          </a>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn--primary"
+          [disabled]="loginForm.invalid"
+        >
+          {{ translationService.translate('auth.login.submit') }}
+        </button>
+      </form>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">
+      <div class="divider__line"></div>
+      <span class="divider__text">{{ translationService.translate('auth.login.noAccount') }}</span>
+      <div class="divider__line"></div>
+    </div>
+
+    <!-- Create Account Button -->
+    <div class="signup-link">
+      <a routerLink="/inscription" class="btn btn--secondary">
+        {{ translationService.translate('auth.login.createAccount') }}
+      </a>
+    </div>
+  </div>
+</main>

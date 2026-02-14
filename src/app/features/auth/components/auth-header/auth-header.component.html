@@ -1,0 +1,26 @@
+<header class="auth-header">
+  <div class="auth-header__content">
+    <!-- Left: Logo -->
+    <div class="auth-header__brand">
+      <svg *ngIf="pageType === 'signup'" class="auth-header__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <svg *ngIf="pageType === 'login'" class="auth-header__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
+      <span class="auth-header__brand-text">{{ translationService.translate('header.brand') }}</span>
+    </div>
+
+    <!-- Right: Back to home link -->
+    <a routerLink="/" class="auth-header__link">
+      <svg class="auth-header__link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>{{ translationService.translate('auth.header.backToHome') }}</span>
+    </a>
+  </div>
+</header>

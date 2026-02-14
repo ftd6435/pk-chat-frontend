@@ -75,5 +75,107 @@
       "phone": "+33 1 23 45 67 89"
     },
     "copyright": "© 2024 PK-Chat. All rights reserved."
+  },
+  "auth": {
+    "signup": {
+      "title": "Create Your Account",
+      "subtitle": "Join PK-Chat and start connecting",
+      "fields": {
+        "fullName": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name",
+          "errors": {
+            "required": "This field is required",
+            "minlength": "Name must be at least 2 characters",
+            "pattern": "Letters, spaces and hyphens only"
+          }
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "Choose a username",
+          "errors": {
+            "required": "This field is required",
+            "minlength": "Minimum 3 characters",
+            "maxlength": "Maximum 20 characters",
+            "pattern": "Letters, numbers, _ or - only"
+          }
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "+224622000000 or +3 333 33 33",
+          "errors": {
+            "required": "This field is required",
+            "invalidPhone": "Invalid phone format"
+          }
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Create a secure password",
+          "helper": "Password must contain at least 8 characters",
+          "strength": {
+            "weak": "Weak",
+            "medium": "Medium",
+            "strong": "Strong",
+            "veryStrong": "Very Strong"
+          },
+          "errors": {
+            "required": "This field is required",
+            "minlength": "Minimum 8 characters required"
+          }
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Repeat your password",
+          "errors": {
+            "required": "This field is required",
+            "mismatch": "Passwords do not match"
+          }
+        },
+        "terms": {
+          "label": "I accept the {{termsLink}} and {{privacyLink}} of PK-Chat",
+          "termsText": "Terms of Service",
+          "privacyText": "Privacy Policy",
+          "errors": {
+            "required": "You must accept the terms"
+          }
+        }
+      },
+      "submit": "Create My Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "security": {
+        "title": "Your Data is Protected",
+        "description": "PK-Chat uses bank-level encryption to protect your personal information. We never share your data with third parties without your explicit consent."
+      }
+    },
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to continue to PK-Chat",
+      "fields": {
+        "identifier": {
+          "label": "Username or Phone",
+          "placeholder": "Enter your username or phone",
+          "errors": {
+            "required": "This field is required",
+            "invalid": "Invalid format"
+          }
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "errors": {
+            "required": "This field is required"
+          }
+        },
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password?"
+      },
+      "submit": "Sign In",
+      "noAccount": "New to PK-Chat?",
+      "createAccount": "Create Account"
+    },
+    "header": {
+      "backToHome": "Back to Home"
+    }
   }
 }

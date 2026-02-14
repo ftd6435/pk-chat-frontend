@@ -1,0 +1,56 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.auth-header {
+  background-color: $primary-base;
+  padding: 16px 32px;
+  width: 100%;
+
+  @include mobile {
+    padding: 16px 16px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $max-width-container;
+    margin: 0 auto;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__icon {
+    color: $text-on-dark-primary;
+    flex-shrink: 0;
+  }
+
+  &__brand-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-on-dark-primary;
+    letter-spacing: -0.02em;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $text-on-dark-secondary;
+    font-size: 14px;
+    font-weight: 500;
+    @include smooth-transition(color);
+
+    &:hover {
+      color: $text-on-dark-primary;
+    }
+  }
+
+  &__link-icon {
+    flex-shrink: 0;
+  }
+}
