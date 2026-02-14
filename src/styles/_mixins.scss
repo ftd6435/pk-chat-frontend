@@ -1,0 +1,69 @@
+// ========================================
+// PK-Chat Design System - Mixins
+// Professional Elevated Style Guide
+// ========================================
+
+@import 'variables';
+
+// Responsive Breakpoint Mixins
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-mobile + 1px}) and (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet-and-mobile {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+// Container Mixin
+@mixin container($max-width: $max-width-container) {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-relaxed;
+
+  @include mobile {
+    padding: 0 $spacing-standard;
+  }
+}
+
+// Transition Mixin
+@mixin smooth-transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Shadow Hover Mixin
+@mixin shadow-hover($base-shadow, $hover-shadow) {
+  box-shadow: $base-shadow;
+  @include smooth-transition(box-shadow);
+
+  &:hover {
+    box-shadow: $hover-shadow;
+  }
+}
+
+// Button Reset Mixin
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}

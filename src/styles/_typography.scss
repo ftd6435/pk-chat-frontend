@@ -1,0 +1,67 @@
+// ========================================
+// PK-Chat Design System - Typography
+// Professional Elevated Style Guide
+// ========================================
+
+// Font Stack
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+// Line Height
+$line-height-base: 1.5;
+$line-height-comfortable: 1.625;
+
+// Font Sizes
+$font-size-caption: 14px;
+$font-size-body: 16px;
+$font-size-card-title: 18px;
+$font-size-subtitle: 20px;
+$font-size-page-title: 24px;
+$font-size-headline: 30px;
+$font-size-hero: 48px;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+
+// Typography Classes
+@mixin typography-caption {
+  font-size: $font-size-caption;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+}
+
+@mixin typography-body {
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+}
+
+@mixin typography-body-emphasized {
+  font-size: $font-size-body;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+}
+
+@mixin typography-card-title {
+  font-size: $font-size-card-title;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+}
+
+@mixin typography-page-title {
+  font-size: $font-size-page-title;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+}
+
+@mixin typography-headline {
+  font-size: $font-size-headline;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+}
+
+@mixin typography-hero {
+  font-size: $font-size-hero;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+}

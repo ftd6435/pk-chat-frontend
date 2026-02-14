@@ -1,0 +1,79 @@
+{
+  "header": {
+    "brand": "PK-Chat",
+    "nav": {
+      "features": "Fonctionnalités",
+      "about": "À propos",
+      "pricing": "Tarifs"
+    },
+    "cta": {
+      "login": "Connexion",
+      "signup": "S'inscrire"
+    }
+  },
+  "hero": {
+    "headline": "Connectez-vous, communiquez et créez des communautés",
+    "description": "Rejoignez vos amis, discutez en temps réel et construisez des communautés dynamiques. PK-Chat unifie vos réseaux sociaux et vos conversations dans une plateforme intuitive et sécurisée.",
+    "cta": {
+      "primary": "Commencer gratuitement",
+      "secondary": "En savoir plus"
+    }
+  },
+  "features": {
+    "title": "Fonctionnalités puissantes pour rester connecté",
+    "description": "Découvrez les outils qui font de PK-Chat la plateforme idéale pour gérer vos relations sociales et créer des communautés engageantes.",
+    "items": [
+      {
+        "title": "Gestion du réseau d'amis",
+        "description": "Invitez facilement vos amis, gérez vos connexions et développez votre réseau social de manière intuitive. Système d'invitation simplifié et outils de découverte intelligents."
+      },
+      {
+        "title": "Messages en temps réel",
+        "description": "Conversations instantanées avec indicateurs de frappe, accusés de réception et support multimédia complet. Restez connecté avec vos proches en permanence."
+      },
+      {
+        "title": "Organisation de communautés",
+        "description": "Créez et gérez des communautés thématiques, organisez des groupes d'intérêt et favorisez les échanges entre membres partageant les mêmes passions."
+      },
+      {
+        "title": "Partage multimédia enrichi",
+        "description": "Partagez textes, images, vidéos, messages vocaux et fichiers en toute simplicité. Interface glisser-déposer et aperçus instantanés pour une expérience fluide."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Rejoignez des milliers d'utilisateurs déjà connectés",
+    "description": "Commencez à construire vos communautés et à renforcer vos relations sociales dès aujourd'hui. Inscription gratuite et sécurisée.",
+    "button": "Créer mon compte gratuit",
+    "trust": {
+      "users": "+50,000 utilisateurs actifs",
+      "security": "Sécurité certifiée",
+      "responsive": "Interface responsive"
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "PK-Chat",
+      "description": "La plateforme sociale nouvelle génération pour connecter, communiquer et créer des communautés."
+    },
+    "quickLinks": {
+      "title": "Liens rapides",
+      "about": "À propos",
+      "features": "Fonctionnalités",
+      "pricing": "Tarifs",
+      "help": "Aide"
+    },
+    "legal": {
+      "title": "Légal",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation",
+      "notice": "Mentions légales"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "support@pkchat.com",
+      "phone": "+33 1 23 45 67 89"
+    },
+    "copyright": "© 2024 PK-Chat. Tous droits réservés."
+  }
+}

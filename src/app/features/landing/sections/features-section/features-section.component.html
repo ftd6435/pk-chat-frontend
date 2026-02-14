@@ -1,0 +1,20 @@
+<section class="features-section" id="features">
+  <div class="features-container">
+    <!-- Section Header -->
+    <div class="features-header">
+      <h2 class="features-title">{{ translations.title }}</h2>
+      <p class="features-description">{{ translations.description }}</p>
+    </div>
+
+    <!-- Feature Cards Grid -->
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon-container" [style.background-color]="feature.iconColor">
+          <iconify-icon [icon]="feature.icon" class="feature-icon"></iconify-icon>
+        </div>
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
