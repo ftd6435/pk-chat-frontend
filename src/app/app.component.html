@@ -1,10 +1,10 @@
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-<app-header></app-header>
+<app-header *ngIf="showHeaderFooter"></app-header>
 
-<main id="main-content">
+<main id="main-content" [class.main-content--auth]="!showHeaderFooter">
   <router-outlet />
 </main>
 
-<app-footer></app-footer>
+<app-footer *ngIf="showHeaderFooter"></app-footer>
 
