@@ -160,7 +160,9 @@ export class SignupComponent implements OnInit, OnDestroy {
     if (errors['invalidPhone']) {
       return this.translationService.translate('auth.signup.fields.phone.errors.invalidPhone');
     }
-    if (errors['passwordMismatch'] && fieldName === 'confirmPassword') {
+    
+    // Check form-level password mismatch error for confirmPassword field
+    if (fieldName === 'confirmPassword' && this.signupForm.errors?.['passwordMismatch']) {
       return this.translationService.translate('auth.signup.fields.confirmPassword.errors.mismatch');
     }
 

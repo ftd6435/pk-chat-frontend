@@ -10,9 +10,10 @@ export function phoneValidator(): ValidatorFn {
     const phoneValue = control.value.replace(/\s/g, '');
     
     // Regex: /^\+?[1-9]\d{1,14}$/
-    // - Optional plus sign at start
+    // E.164 international phone number format:
+    // - Optional plus sign (+) at start
     // - Must start with digit 1-9
-    // - Followed by 1-14 more digits
+    // - Followed by 1-14 more digits (2-15 digits total)
     const phoneRegex = /^\+?[1-9]\d{1,14}$/;
     
     const valid = phoneRegex.test(phoneValue);
