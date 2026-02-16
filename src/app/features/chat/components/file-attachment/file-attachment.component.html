@@ -1,0 +1,18 @@
+<div class="file-attachment" [class.own-message]="isOwnMessage">
+  <div class="file-icon-container">
+    <iconify-icon [icon]="getFileIcon()"></iconify-icon>
+  </div>
+
+  <div class="file-info">
+    <span class="file-name">{{ file.fileName }}</span>
+    <span class="file-size">{{ formatFileSize(file.fileSize) }}</span>
+  </div>
+
+  <button 
+    class="download-button"
+    (click)="downloadFile()"
+    [attr.aria-label]="translationService.translate('chat.fileAttachment.download')"
+  >
+    <iconify-icon icon="lucide:download"></iconify-icon>
+  </button>
+</div>

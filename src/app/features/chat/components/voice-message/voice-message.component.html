@@ -1,0 +1,16 @@
+<div class="voice-message-player" [class.own-message]="isOwnMessage">
+  <button 
+    class="play-button" 
+    (click)="togglePlayPause()"
+    [attr.aria-label]="isPlaying ? translationService.translate('chat.voiceMessage.pause') : translationService.translate('chat.voiceMessage.play')"
+  >
+    <iconify-icon [icon]="isPlaying ? 'lucide:pause' : 'lucide:play'"></iconify-icon>
+  </button>
+
+  <div class="waveform-container">
+    <div class="waveform-bg"></div>
+    <div class="waveform-progress" [style.width.%]="progress"></div>
+  </div>
+
+  <span class="duration">{{ formatDuration(voiceMessage.duration) }}</span>
+</div>

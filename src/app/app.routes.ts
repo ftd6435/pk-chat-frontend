@@ -20,6 +20,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent),
     title: 'Tableau de bord - PK-Chat'
   },
+  {
+    path: 'discussion/:userId',
+    loadComponent: () => import('./features/chat/private-chat/private-chat.component').then(m => m.PrivateChatComponent),
+    title: 'Discussion - PK-Chat'
+  },
   // Also support English routes
   {
     path: 'signup',
@@ -32,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     redirectTo: 'tableau-de-bord'
+  },
+  {
+    path: 'chat/:userId',
+    redirectTo: 'discussion/:userId'
   },
   {
     path: '**',

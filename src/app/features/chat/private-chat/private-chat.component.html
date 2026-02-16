@@ -1,0 +1,134 @@
+<app-dashboard-header></app-dashboard-header>
+
+<main class="chat-container">
+  <app-chat-header
+    [participant]="participant"
+    (phoneCall)="onPhoneCall()"
+    (videoCall)="onVideoCall()"
+    (search)="onSearch()"
+    (moreOptions)="onMoreOptions()"
+  ></app-chat-header>
+
+  <div 
+    #messageThread 
+    class="message-thread"
+    (scroll)="onScroll()"
+  >
+    <div *ngFor="let group of messageGroups" class="message-group">
+      <!-- Date Divider -->
+      <div class="date-divider">
+        <div class="date-badge">{{ group.dateLabel }}</div>
+      </div>
+
+      <!-- Messages -->
+      <div *ngFor="let message of group.messages; let i = index; trackBy: trackByMessageId">
+        <!-- Text Message -->
+        <app-message-bubble
+          *ngIf="message.type === MessageType.TEXT"
+          [message]="message"
+          [isOwnMessage]="isOwnMessage(message)"
+          [showAvatar]="shouldShowAvatar(message, i, group.messages)"
+          [showTimestamp]="shouldShowTimestamp(message, i, group.messages)"
+          [avatarUrl]="participant.avatar"
+        ></app-message-bubble>
+
+        <!-- Voice Message -->
+        <div 
+          *ngIf="message.type === MessageType.VOICE"
+          class="message-wrapper"
+          [class.message-sent]="isOwnMessage(message)"
+          [class.message-received]="!isOwnMessage(message)"
+        >
+          <div *ngIf="!isOwnMessage(message)" class="message-received">
+            <img *ngIf="shouldShowAvatar(message, i, group.messages)" [src]="participant.avatar" alt="Avatar" class="avatar">
+            <div class="message-content">
+              <div class="bubble">
+                <app-voice-message
+                  [voiceMessage]="message.voiceMessage!"
+                  [isOwnMessage]="false"
+                ></app-voice-message>
+              </div>
+              <span *ngIf="shouldShowTimestamp(message, i, group.messages)" class="timestamp">
+                {{ message.timestamp | date:'HH:mm' }}
+              </span>
+            </div>
+          </div>
+
+          <div *ngIf="isOwnMessage(message)" class="message-sent">
+            <div class="message-content">
+              <div class="bubble">
+                <app-voice-message
+                  [voiceMessage]="message.voiceMessage!"
+                  [isOwnMessage]="true"
+                ></app-voice-message>
+              </div>
+              <div class="timestamp-read-status">
+                <span class="timestamp">{{ message.timestamp | date:'HH:mm' }}</span>
+                <iconify-icon 
+                  icon="lucide:check-check" 
+                  class="read-status"
+                  [class.read]="message.status === 'read'"
+                ></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- File Attachment -->
+        <div 
+          *ngIf="message.type === MessageType.FILE"
+          class="message-wrapper"
+          [class.message-sent]="isOwnMessage(message)"
+          [class.message-received]="!isOwnMessage(message)"
+        >
+          <div *ngIf="!isOwnMessage(message)" class="message-received">
+            <img *ngIf="shouldShowAvatar(message, i, group.messages)" [src]="participant.avatar" alt="Avatar" class="avatar">
+            <div class="message-content">
+              <div class="bubble">
+                <app-file-attachment
+                  [file]="message.fileAttachment!"
+                  [isOwnMessage]="false"
+                ></app-file-attachment>
+              </div>
+              <span *ngIf="shouldShowTimestamp(message, i, group.messages)" class="timestamp">
+                {{ message.timestamp | date:'HH:mm' }}
+              </span>
+            </div>
+          </div>
+
+          <div *ngIf="isOwnMessage(message)" class="message-sent">
+            <div class="message-content">
+              <div class="bubble">
+                <app-file-attachment
+                  [file]="message.fileAttachment!"
+                  [isOwnMessage]="true"
+                ></app-file-attachment>
+              </div>
+              <div class="timestamp-read-status">
+                <span class="timestamp">{{ message.timestamp | date:'HH:mm' }}</span>
+                <iconify-icon 
+                  icon="lucide:check-check" 
+                  class="read-status"
+                  [class.read]="message.status === 'read'"
+                ></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <app-typing-indicator
+      *ngIf="participant.isTyping"
+      [userName]="participant.name"
+    ></app-typing-indicator>
+  </div>
+
+  <app-message-input
+    (sendMessage)="onSendMessage($event)"
+    (attachFile)="onAttachFile()"
+    (sendVoice)="onSendVoice()"
+    (openEmoji)="onOpenEmoji()"
+  ></app-message-input>
+</main>

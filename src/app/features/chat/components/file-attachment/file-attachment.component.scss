@@ -1,0 +1,123 @@
+@import '../../../../../styles/variables';
+
+.file-attachment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+
+  .file-icon-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    iconify-icon {
+      font-size: 20px;
+    }
+  }
+
+  .file-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+
+    .file-name {
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .file-size {
+      font-size: 12px;
+    }
+  }
+
+  .download-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+
+    iconify-icon {
+      font-size: 16px;
+    }
+  }
+
+  // Styles for received messages
+  &:not(.own-message) {
+    .file-icon-container {
+      background: hsla(35, 15%, 94%, 1);
+
+      iconify-icon {
+        color: $text-secondary;
+      }
+    }
+
+    .file-info {
+      .file-name {
+        color: $text-primary;
+      }
+
+      .file-size {
+        color: $text-secondary;
+      }
+    }
+
+    .download-button {
+      background: hsla(35, 15%, 94%, 1);
+      
+      &:hover {
+        background: hsla(35, 15%, 90%, 1);
+      }
+
+      iconify-icon {
+        color: $text-secondary;
+      }
+    }
+  }
+
+  // Styles for sent messages
+  &.own-message {
+    .file-icon-container {
+      background: rgba(255, 255, 255, 0.2);
+
+      iconify-icon {
+        color: $text-on-dark-primary;
+      }
+    }
+
+    .file-info {
+      .file-name {
+        color: $text-on-dark-primary;
+      }
+
+      .file-size {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .download-button {
+      background: rgba(255, 255, 255, 0.2);
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      iconify-icon {
+        color: $text-on-dark-primary;
+      }
+    }
+  }
+}

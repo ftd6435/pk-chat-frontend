@@ -1,0 +1,47 @@
+<div class="message-input-container">
+  <button 
+    class="action-button"
+    (click)="onAttachFile()"
+    [attr.aria-label]="translationService.translate('chat.input.attachFile')"
+  >
+    <iconify-icon icon="lucide:paperclip"></iconify-icon>
+  </button>
+
+  <div class="text-input-wrapper">
+    <textarea
+      #messageTextarea
+      [(ngModel)]="messageText"
+      (input)="onInput()"
+      (keydown)="onKeyDown($event)"
+      class="message-textarea"
+      [placeholder]="translationService.translate('chat.input.placeholder')"
+      [attr.aria-label]="translationService.translate('chat.input.placeholder')"
+      rows="1"
+    ></textarea>
+    
+    <button 
+      class="emoji-button"
+      (click)="onOpenEmoji()"
+      [attr.aria-label]="translationService.translate('chat.input.openEmoji')"
+    >
+      <iconify-icon icon="lucide:smile"></iconify-icon>
+    </button>
+  </div>
+
+  <button 
+    class="action-button"
+    (click)="onSendVoice()"
+    [attr.aria-label]="translationService.translate('chat.input.sendVoice')"
+  >
+    <iconify-icon icon="lucide:mic"></iconify-icon>
+  </button>
+
+  <button 
+    class="send-button"
+    (click)="onSendMessage()"
+    [disabled]="!canSend"
+    [attr.aria-label]="translationService.translate('chat.input.sendMessage')"
+  >
+    <iconify-icon icon="lucide:send"></iconify-icon>
+  </button>
+</div>

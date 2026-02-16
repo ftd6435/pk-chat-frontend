@@ -1,0 +1,60 @@
+<header class="chat-header">
+  <div class="header-left">
+    <button 
+      class="back-button"
+      (click)="goBack()"
+      [attr.aria-label]="translationService.translate('chat.header.backButton')"
+    >
+      <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+    </button>
+
+    <div class="user-info">
+      <div class="avatar-container">
+        <img [src]="participant.avatar" [alt]="participant.name" class="avatar">
+        <span *ngIf="participant.isOnline" class="online-badge"></span>
+      </div>
+      
+      <div class="user-details">
+        <h1 class="user-name">{{ participant.name }}</h1>
+        <div class="user-status">
+          <span *ngIf="participant.isOnline" class="status-dot"></span>
+          <span class="status-text">{{ statusText }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <button 
+      class="action-button"
+      (click)="onPhoneCall()"
+      [attr.aria-label]="translationService.translate('chat.header.phoneCall')"
+    >
+      <iconify-icon icon="lucide:phone"></iconify-icon>
+    </button>
+
+    <button 
+      class="action-button"
+      (click)="onVideoCall()"
+      [attr.aria-label]="translationService.translate('chat.header.videoCall')"
+    >
+      <iconify-icon icon="lucide:video"></iconify-icon>
+    </button>
+
+    <button 
+      class="action-button"
+      (click)="onSearch()"
+      [attr.aria-label]="translationService.translate('chat.header.searchInChat')"
+    >
+      <iconify-icon icon="lucide:search"></iconify-icon>
+    </button>
+
+    <button 
+      class="action-button"
+      (click)="onMoreOptions()"
+      [attr.aria-label]="translationService.translate('chat.header.moreOptions')"
+    >
+      <iconify-icon icon="lucide:more-vertical"></iconify-icon>
+    </button>
+  </div>
+</header>
