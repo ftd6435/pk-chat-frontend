@@ -1,0 +1,94 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.conversation-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: $bg-container-primary;
+  border-radius: $radius-large;
+  box-shadow: $shadow-moderate;
+  @include smooth-transition(box-shadow);
+  cursor: pointer;
+  margin-bottom: 16px;
+
+  &:hover {
+    box-shadow: $shadow-pronounced;
+  }
+}
+
+.avatar-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background-color: $status-online;
+  border: 2px solid $bg-container-primary;
+  border-radius: 50%;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .timestamp {
+      font-size: 14px;
+      color: $text-tertiary;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+  }
+
+  .last-message {
+    font-size: 14px;
+    color: $text-secondary;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.unread-badge {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $accent-gold;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

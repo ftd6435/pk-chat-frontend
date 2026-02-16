@@ -1,0 +1,75 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.online-friend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avatar-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: $status-online;
+  border: 2px solid $bg-page;
+  border-radius: 50%;
+}
+
+.friend-name {
+  flex: 1;
+  min-width: 0;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.message-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-container-primary;
+  border: none;
+  border-radius: $radius-small;
+  box-shadow: $shadow-subtle;
+  cursor: pointer;
+  @include smooth-transition(box-shadow);
+
+  iconify-icon {
+    font-size: 16px;
+    color: $text-secondary;
+  }
+
+  &:hover {
+    box-shadow: $shadow-moderate;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-base;
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.user-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background-color: $bg-container-primary;
+  border-radius: $radius-large;
+  box-shadow: $shadow-moderate;
+  margin-bottom: 24px;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  text-align: center;
+  width: 100%;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 8px 0;
+  }
+
+  .user-bio {
+    font-size: 14px;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.edit-profile-button {
+  font-size: 14px;
+  color: $primary-base;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  @include smooth-transition(color);
+
+  &:hover {
+    color: $primary-lighter;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-base;
+    outline-offset: 2px;
+    border-radius: $radius-small;
+  }
+}

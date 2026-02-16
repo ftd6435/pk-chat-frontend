@@ -1,0 +1,96 @@
+<div class="dashboard-layout">
+  <app-dashboard-header></app-dashboard-header>
+
+  <div class="dashboard-content">
+    <app-dashboard-sidebar></app-dashboard-sidebar>
+
+    <main class="main-content">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <h1 class="welcome-heading">
+          {{ translationService.translate('dashboard.welcome.greeting').replace('{{name}}', getUserFirstName()) }}
+        </h1>
+        <p class="welcome-subtitle">
+          {{ translationService.translate('dashboard.welcome.subtitle') }}
+        </p>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="quick-actions">
+        <button class="action-button primary">
+          <iconify-icon icon="lucide:message-circle-plus"></iconify-icon>
+          <span>{{ translationService.translate('dashboard.quickActions.newChat') }}</span>
+        </button>
+        <button class="action-button secondary">
+          <iconify-icon icon="lucide:users-plus"></iconify-icon>
+          <span>{{ translationService.translate('dashboard.quickActions.createCommunity') }}</span>
+        </button>
+        <button class="action-button secondary">
+          <iconify-icon icon="lucide:user-plus"></iconify-icon>
+          <span>{{ translationService.translate('dashboard.quickActions.findFriends') }}</span>
+        </button>
+      </section>
+
+      <!-- Two-Column Content -->
+      <div class="content-columns">
+        <!-- Recent Conversations -->
+        <section class="conversations-section">
+          <h2 class="section-title">
+            {{ translationService.translate('dashboard.conversations.title') }}
+          </h2>
+          <div class="conversations-list">
+            <app-conversation-card
+              *ngFor="let conversation of conversations; trackBy: trackByConversation"
+              [conversation]="conversation"
+            ></app-conversation-card>
+          </div>
+        </section>
+
+        <!-- Community Updates -->
+        <section class="community-updates-section">
+          <h2 class="section-title">
+            {{ translationService.translate('dashboard.communityUpdates.title') }}
+          </h2>
+          <div class="updates-list">
+            <app-community-update-card
+              *ngFor="let update of communityUpdates; trackBy: trackByCommunityUpdate"
+              [update]="update"
+            ></app-community-update-card>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+      <!-- User Profile -->
+      <app-user-profile-card [user]="currentUser"></app-user-profile-card>
+
+      <!-- Friend Suggestions -->
+      <section class="friend-suggestions-section">
+        <h2 class="section-title">
+          {{ translationService.translate('dashboard.friendSuggestions.title') }}
+        </h2>
+        <div class="suggestions-list">
+          <app-friend-suggestion-card
+            *ngFor="let suggestion of friendSuggestions; trackBy: trackByFriendSuggestion"
+            [suggestion]="suggestion"
+          ></app-friend-suggestion-card>
+        </div>
+      </section>
+
+      <!-- Online Friends -->
+      <section class="online-friends-section">
+        <h2 class="section-title">
+          {{ translationService.translate('dashboard.onlineFriends.title') }}
+        </h2>
+        <div class="online-friends-list">
+          <app-online-friend-item
+            *ngFor="let friend of onlineFriends; trackBy: trackByOnlineFriend"
+            [friend]="friend"
+          ></app-online-friend-item>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>

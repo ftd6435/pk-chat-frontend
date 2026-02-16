@@ -1,0 +1,192 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: $primary-base;
+  color: $text-on-dark-primary;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  .brand-icon {
+    font-size: 32px;
+    color: white;
+  }
+
+  .brand-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: $radius-medium;
+  padding: 8px 16px;
+  min-width: 320px;
+  max-width: 480px;
+  flex: 1;
+
+  .search-icon {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    flex-shrink: 0;
+  }
+
+  .search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    width: 100%;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: $radius-small;
+  cursor: pointer;
+  color: white;
+  @include smooth-transition(background-color);
+
+  iconify-icon {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+  }
+
+  &.new-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+
+    .chevron {
+      font-size: 16px;
+    }
+  }
+
+  &.icon-button {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    position: relative;
+
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $accent-gold;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(201, 169, 97, 0.3);
+    }
+  }
+}
+
+.user-avatar-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  @include smooth-transition(opacity);
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+    border-radius: 50%;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+  }
+
+  .chevron {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .dashboard-header {
+    padding: 12px 16px;
+  }
+
+  .search-container {
+    min-width: 200px;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .new-button span {
+    display: none;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .search-container {
+    display: none;
+  }
+}

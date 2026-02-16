@@ -1,0 +1,40 @@
+<header class="dashboard-header">
+  <div class="header-left">
+    <div class="brand">
+      <iconify-icon icon="lucide:message-circle" class="brand-icon"></iconify-icon>
+      <span class="brand-text">PK-Chat</span>
+    </div>
+    <div class="search-container">
+      <iconify-icon icon="lucide:search" class="search-icon"></iconify-icon>
+      <input
+        type="search"
+        class="search-input"
+        [placeholder]="translationService.translate('dashboard.header.searchPlaceholder')"
+        [attr.aria-label]="translationService.translate('dashboard.header.searchPlaceholder')"
+      >
+    </div>
+  </div>
+
+  <div class="header-right">
+    <button class="header-button new-button" aria-label="Create new item">
+      <iconify-icon icon="lucide:plus"></iconify-icon>
+      <span>{{ translationService.translate('dashboard.header.newButton') }}</span>
+      <iconify-icon icon="lucide:chevron-down" class="chevron"></iconify-icon>
+    </button>
+
+    <button class="header-button icon-button" [attr.aria-label]="translationService.translate('dashboard.header.notifications')">
+      <iconify-icon icon="lucide:bell"></iconify-icon>
+      <span class="badge" *ngIf="notificationCount > 0">{{ notificationCount }}</span>
+    </button>
+
+    <button class="header-button icon-button" [attr.aria-label]="translationService.translate('dashboard.header.messages')">
+      <iconify-icon icon="lucide:message-square"></iconify-icon>
+      <span class="badge" *ngIf="messageCount > 0">{{ messageCount }}</span>
+    </button>
+
+    <button class="user-avatar-button" aria-label="User menu">
+      <img src="https://i.pravatar.cc/150?img=5" alt="User avatar" class="user-avatar">
+      <iconify-icon icon="lucide:chevron-down" class="chevron"></iconify-icon>
+    </button>
+  </div>
+</header>

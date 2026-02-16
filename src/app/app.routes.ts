@@ -15,6 +15,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/auth/login/login.component').then(m => m.LoginComponent),
     title: 'Connexion - PK-Chat'
   },
+  {
+    path: 'tableau-de-bord',
+    loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent),
+    title: 'Tableau de bord - PK-Chat'
+  },
   // Also support English routes
   {
     path: 'signup',
@@ -23,6 +28,10 @@ export const routes: Routes = [
   {
     path: 'login',
     redirectTo: 'connexion'
+  },
+  {
+    path: 'dashboard',
+    redirectTo: 'tableau-de-bord'
   },
   {
     path: '**',
