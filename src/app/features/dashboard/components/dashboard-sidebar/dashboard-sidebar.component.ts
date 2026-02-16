@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslationService } from '../../../../core/services/translation.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { TranslationService } from '../../../../core/services/translation.servic
   standalone: true,
   imports: [CommonModule],
   templateUrl: './dashboard-sidebar.component.html',
-  styleUrls: ['./dashboard-sidebar.component.scss']
+  styleUrls: ['./dashboard-sidebar.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardSidebarComponent {
   activeItem = 'dashboard';

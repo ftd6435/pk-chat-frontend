@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FriendSuggestion } from '../../../../shared/models/friend-suggestion.model';
 import { TranslationService } from '../../../../core/services/translation.service';
 
@@ -8,7 +9,8 @@ import { TranslationService } from '../../../../core/services/translation.servic
   standalone: true,
   imports: [CommonModule],
   templateUrl: './friend-suggestion-card.component.html',
-  styleUrls: ['./friend-suggestion-card.component.scss']
+  styleUrls: ['./friend-suggestion-card.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FriendSuggestionCardComponent {
   @Input() suggestion!: FriendSuggestion;
