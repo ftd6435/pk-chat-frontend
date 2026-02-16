@@ -46,6 +46,10 @@ $radius-medium: 12px;
 $radius-large: 16px;
 $radius-extra-large: 20px;
 
+// Status Colors
+$status-online: oklch(72.3% 0.219 149.579);
+$status-offline: oklch(70.7% 0.022 261.325);
+
 // Breakpoints
 $breakpoint-mobile: 767px;
 $breakpoint-tablet: 1023px;

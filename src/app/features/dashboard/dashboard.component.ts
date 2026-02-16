@@ -53,6 +53,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getUserFirstName(): string {
+    if (!this.currentUser.name || this.currentUser.name.trim() === '') {
+      return 'User';
+    }
     return this.currentUser.name.split(' ')[0];
   }
 
