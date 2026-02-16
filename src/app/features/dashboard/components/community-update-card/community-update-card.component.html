@@ -1,0 +1,13 @@
+<div class="community-update-card">
+  <img [src]="update.communityIcon" [alt]="update.communityName" class="community-icon">
+  <div class="content">
+    <h3>{{ update.communityName }}</h3>
+    <p class="update-text">{{ update.updateText }}</p>
+    <div class="footer">
+      <span class="timestamp">{{ update.timestamp }}</span>
+      <button class="view-button">
+        {{ translationService.translate('dashboard.communityUpdates.viewButton') }}
+      </button>
+    </div>
+  </div>
+</div>

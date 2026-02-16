@@ -177,5 +177,56 @@
     "header": {
       "backToHome": "Retour à l'accueil"
     }
+  },
+  "dashboard": {
+    "header": {
+      "searchPlaceholder": "Rechercher des amis, communautés, messages...",
+      "newButton": "Nouveau",
+      "notifications": "Notifications",
+      "messages": "Messages"
+    },
+    "sidebar": {
+      "dashboard": "Tableau de bord",
+      "friends": "Amis",
+      "communities": "Communautés",
+      "messages": "Messages",
+      "profile": "Profil"
+    },
+    "welcome": {
+      "greeting": "Bonjour, {{name}} !",
+      "subtitle": "Bienvenue sur votre tableau de bord PK-Chat"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "newChat": "Nouveau chat",
+      "createCommunity": "Créer une communauté",
+      "findFriends": "Trouver des amis"
+    },
+    "conversations": {
+      "title": "Conversations récentes",
+      "timeAgo": {
+        "minutes": "Il y a {{count}} min",
+        "hours": "Il y a {{count}}h",
+        "yesterday": "Hier",
+        "days": "Il y a {{count}}j"
+      }
+    },
+    "communityUpdates": {
+      "title": "Mises à jour des communautés",
+      "viewButton": "Voir"
+    },
+    "userProfile": {
+      "editProfile": "Modifier le profil"
+    },
+    "friendSuggestions": {
+      "title": "Suggestions d'amis",
+      "mutualFriends": {
+        "one": "{{count}} ami en commun",
+        "other": "{{count}} amis en commun"
+      }
+    },
+    "onlineFriends": {
+      "title": "Amis en ligne"
+    }
   }
 }

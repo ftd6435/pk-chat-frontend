@@ -1,0 +1,15 @@
+<aside class="dashboard-sidebar">
+  <nav class="sidebar-nav">
+    <button
+      *ngFor="let item of navItems"
+      class="nav-item"
+      [class.active]="item.id === activeItem"
+      (click)="setActive(item.id)"
+      [attr.aria-label]="translationService.translate(item.translationKey)"
+      [attr.aria-current]="item.id === activeItem ? 'page' : null"
+    >
+      <iconify-icon [icon]="item.icon"></iconify-icon>
+      <span>{{ translationService.translate(item.translationKey) }}</span>
+    </button>
+  </nav>
+</aside>

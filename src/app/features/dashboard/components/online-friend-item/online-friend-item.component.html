@@ -1,0 +1,12 @@
+<div class="online-friend-item">
+  <div class="avatar-container">
+    <img [src]="friend.avatar" [alt]="friend.name" class="avatar">
+    <div class="status-indicator" *ngIf="friend.isOnline"></div>
+  </div>
+  <div class="friend-name">
+    <h4>{{ friend.name }}</h4>
+  </div>
+  <button class="message-button" [attr.aria-label]="'Send message to ' + friend.name">
+    <iconify-icon icon="lucide:message-circle"></iconify-icon>
+  </button>
+</div>

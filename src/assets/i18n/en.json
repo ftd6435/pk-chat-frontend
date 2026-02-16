@@ -177,5 +177,56 @@
     "header": {
       "backToHome": "Back to Home"
     }
+  },
+  "dashboard": {
+    "header": {
+      "searchPlaceholder": "Search friends, communities, messages...",
+      "newButton": "New",
+      "notifications": "Notifications",
+      "messages": "Messages"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "friends": "Friends",
+      "communities": "Communities",
+      "messages": "Messages",
+      "profile": "Profile"
+    },
+    "welcome": {
+      "greeting": "Hello, {{name}}!",
+      "subtitle": "Welcome to your PK-Chat dashboard"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "newChat": "New Chat",
+      "createCommunity": "Create Community",
+      "findFriends": "Find Friends"
+    },
+    "conversations": {
+      "title": "Recent Conversations",
+      "timeAgo": {
+        "minutes": "{{count}} min ago",
+        "hours": "{{count}}h ago",
+        "yesterday": "Yesterday",
+        "days": "{{count}}d ago"
+      }
+    },
+    "communityUpdates": {
+      "title": "Community Updates",
+      "viewButton": "View"
+    },
+    "userProfile": {
+      "editProfile": "Edit Profile"
+    },
+    "friendSuggestions": {
+      "title": "Friend Suggestions",
+      "mutualFriends": {
+        "one": "{{count}} mutual friend",
+        "other": "{{count}} mutual friends"
+      }
+    },
+    "onlineFriends": {
+      "title": "Online Friends"
+    }
   }
 }

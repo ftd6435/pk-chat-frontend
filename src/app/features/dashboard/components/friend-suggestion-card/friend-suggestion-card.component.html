@@ -1,0 +1,10 @@
+<div class="friend-suggestion-card">
+  <img [src]="suggestion.avatar" [alt]="suggestion.name" class="avatar">
+  <div class="content">
+    <h4>{{ suggestion.name }}</h4>
+    <p class="mutual-friends">{{ getMutualFriendsText() }}</p>
+  </div>
+  <button class="add-friend-button" [attr.aria-label]="'Add ' + suggestion.name + ' as friend'">
+    <iconify-icon icon="lucide:user-plus"></iconify-icon>
+  </button>
+</div>
