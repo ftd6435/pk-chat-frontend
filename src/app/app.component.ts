@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isPublicRoute(): boolean {
     // Public pages: landing, login, signup (show landing header)
     const publicRoutes = ['/', '/accueil', '/connexion', '/inscription', '/login', '/signup'];
-    return publicRoutes.some(route => this.currentRoute === route || (route === '/' && this.currentRoute === ''));
+    return publicRoutes.some(route => this.currentRoute === route || this.currentRoute === '');
   }
 
   isAuthenticatedRoute(): boolean {
