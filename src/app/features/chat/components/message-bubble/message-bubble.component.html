@@ -1,0 +1,32 @@
+<div class="message-wrapper" [class.message-sent]="isOwnMessage" [class.message-received]="!isOwnMessage">
+  <!-- Received Messages (Left-aligned) -->
+  <div *ngIf="!isOwnMessage" class="message-received">
+    <img *ngIf="showAvatar" [src]="avatarUrl" alt="Avatar" class="avatar">
+    
+    <div class="message-content">
+      <div class="bubble">
+        <p>{{ message.content }}</p>
+      </div>
+      <span *ngIf="showTimestamp" class="timestamp">
+        {{ formatTime(message.timestamp) }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Sent Messages (Right-aligned) -->
+  <div *ngIf="isOwnMessage" class="message-sent">
+    <div class="message-content">
+      <div class="bubble">
+        <p>{{ message.content }}</p>
+      </div>
+      <div class="timestamp-read-status">
+        <span class="timestamp">{{ formatTime(message.timestamp) }}</span>
+        <iconify-icon 
+          icon="lucide:check-check" 
+          class="read-status"
+          [class.read]="isRead"
+        ></iconify-icon>
+      </div>
+    </div>
+  </div>
+</div>

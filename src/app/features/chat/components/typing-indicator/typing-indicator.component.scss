@@ -1,0 +1,16 @@
+@import '../../../../../styles/variables';
+
+.typing-indicator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+
+  .typing-indicator {
+    background: hsla(35, 15%, 94%, 1);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: $text-secondary;
+  }
+}

@@ -228,5 +228,42 @@
     "onlineFriends": {
       "title": "Amis en ligne"
     }
+  },
+  "chat": {
+    "header": {
+      "online": "En ligne",
+      "offline": "Hors ligne",
+      "lastSeen": "Vu(e) il y a {{time}}",
+      "backButton": "Retour",
+      "phoneCall": "Appel audio",
+      "videoCall": "Appel vidéo",
+      "searchInChat": "Rechercher dans la conversation",
+      "moreOptions": "Plus d'options"
+    },
+    "messages": {
+      "today": "Aujourd'hui",
+      "yesterday": "Hier",
+      "typingIndicator": "{{name}} est en train de taper...",
+      "messageSent": "Message envoyé",
+      "messageDelivered": "Message reçu",
+      "messageRead": "Message lu",
+      "messageFailed": "Échec de l'envoi"
+    },
+    "input": {
+      "placeholder": "Tapez votre message...",
+      "attachFile": "Joindre un fichier",
+      "sendVoice": "Envoyer un message vocal",
+      "openEmoji": "Ouvrir les émojis",
+      "sendMessage": "Envoyer le message"
+    },
+    "voiceMessage": {
+      "play": "Lire le message vocal",
+      "pause": "Mettre en pause",
+      "duration": "{{duration}}"
+    },
+    "fileAttachment": {
+      "download": "Télécharger le fichier",
+      "fileSize": "{{size}}"
+    }
   }
 }

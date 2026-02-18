@@ -1,0 +1,110 @@
+@import '../../../../../styles/variables';
+
+.voice-message-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 250px;
+
+  .play-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+
+    iconify-icon {
+      font-size: 16px;
+    }
+  }
+
+  .waveform-container {
+    position: relative;
+    flex: 1;
+    height: 24px;
+
+    .waveform-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+    }
+
+    .waveform-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 300ms ease;
+    }
+  }
+
+  .duration {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  // Styles for received messages
+  &:not(.own-message) {
+    .play-button {
+      background: $primary-base;
+      color: white;
+
+      &:hover {
+        background: $primary-lighter;
+      }
+
+      iconify-icon {
+        color: white;
+      }
+    }
+
+    .waveform-bg {
+      background: hsla(35, 15%, 94%, 1);
+    }
+
+    .waveform-progress {
+      background: $primary-base;
+    }
+
+    .duration {
+      color: $text-secondary;
+    }
+  }
+
+  // Styles for sent messages
+  &.own-message {
+    .play-button {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      iconify-icon {
+        color: $text-on-dark-primary;
+      }
+    }
+
+    .waveform-bg {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .waveform-progress {
+      background: white;
+    }
+
+    .duration {
+      color: $text-on-dark-primary;
+    }
+  }
+}
