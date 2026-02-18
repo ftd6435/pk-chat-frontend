@@ -1,0 +1,30 @@
+<div class="profile-photo-upload">
+  <h3 class="section-title">{{ translationService.translate('profileSetup.profilePhoto.title') }}</h3>
+  
+  <div class="upload-container">
+    <div class="avatar-preview-wrapper">
+      <div class="avatar-preview" [class.has-photo]="currentPhoto">
+        <img *ngIf="currentPhoto" [src]="currentPhoto" alt="Profile photo preview" />
+        <iconify-icon *ngIf="!currentPhoto" icon="lucide:user" class="placeholder-icon"></iconify-icon>
+      </div>
+      <button type="button" class="camera-button" (click)="triggerFileSelect()" [attr.aria-label]="translationService.translate('profileSetup.profilePhoto.uploadButton')">
+        <iconify-icon icon="lucide:camera"></iconify-icon>
+      </button>
+    </div>
+    
+    <input 
+      #fileInput 
+      type="file" 
+      accept="image/jpeg,image/png,image/webp" 
+      (change)="onFileSelected($event)"
+      class="hidden"
+    />
+    
+    <button type="button" class="upload-button" (click)="triggerFileSelect()">
+      <iconify-icon icon="lucide:upload"></iconify-icon>
+      <span>{{ translationService.translate('profileSetup.profilePhoto.uploadButton') }}</span>
+    </button>
+    
+    <p class="help-text">{{ translationService.translate('profileSetup.profilePhoto.helpText') }}</p>
+  </div>
+</div>

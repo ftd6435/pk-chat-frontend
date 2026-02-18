@@ -1,0 +1,26 @@
+<div class="interest-selector">
+  <h3 class="section-title">{{ translationService.translate('profileSetup.interests.label') }}</h3>
+  
+  <div class="interests-section">
+    <div class="interests-container">
+      <!-- Interest chips -->
+      <button
+        *ngFor="let interest of interests"
+        type="button"
+        class="interest-chip"
+        [class.selected]="isSelected(interest)"
+        (click)="toggleInterest(interest)"
+      >
+        {{ interest }}
+      </button>
+
+      <!-- Add custom button -->
+      <button type="button" class="add-interest-btn" (click)="openAddDialog()">
+        <iconify-icon icon="lucide:plus"></iconify-icon>
+        <span>{{ translationService.translate('profileSetup.interests.addButton') }}</span>
+      </button>
+    </div>
+
+    <p class="help-text">{{ translationService.translate('profileSetup.interests.helpText') }}</p>
+  </div>
+</div>

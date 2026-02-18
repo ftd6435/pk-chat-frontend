@@ -1,0 +1,139 @@
+@import '../../../../../styles/variables';
+
+.cover-photo-upload {
+  .section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: $spacing-comfortable;
+    text-align: center;
+  }
+
+  .upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-comfortable;
+    background: $bg-container-primary;
+    padding: $spacing-relaxed;
+    border-radius: $radius-large;
+    box-shadow: $shadow-moderate;
+  }
+
+  .cover-preview-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .cover-preview {
+    width: 100%;
+    height: 192px;
+    border-radius: $radius-large;
+    background: hsla(35, 15%, 94%, 1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .placeholder-icon {
+      font-size: 3rem;
+      color: $text-tertiary;
+    }
+  }
+
+  .camera-button {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $primary-base;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: $shadow-moderate;
+    transition: all 200ms ease;
+
+    iconify-icon {
+      font-size: 20px;
+      color: $text-on-dark-primary;
+    }
+
+    &:hover {
+      background: $primary-lighter;
+      box-shadow: $shadow-pronounced;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .upload-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: $bg-container-primary;
+    border: 1px solid hsla(35, 10%, 88%, 1);
+    padding: 12px 24px;
+    border-radius: $radius-medium;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-primary;
+    box-shadow: $shadow-subtle;
+    transition: all 200ms ease;
+
+    iconify-icon {
+      font-size: 18px;
+      color: $text-secondary;
+    }
+
+    &:hover {
+      box-shadow: $shadow-moderate;
+      border-color: $primary-base;
+      
+      iconify-icon {
+        color: $primary-base;
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  .help-text {
+    font-size: 0.75rem;
+    color: $text-tertiary;
+    text-align: center;
+    max-width: 400px;
+    margin: 0;
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-mobile) {
+  .cover-photo-upload {
+    .cover-preview {
+      height: 128px;
+    }
+
+    .upload-container {
+      padding: $spacing-comfortable;
+    }
+  }
+}

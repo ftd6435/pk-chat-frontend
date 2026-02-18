@@ -265,5 +265,77 @@
       "download": "Download file",
       "fileSize": "{{size}}"
     }
+  },
+  "profileSetup": {
+    "header": {
+      "step": "Step {{current}} of {{total}}"
+    },
+    "title": "Complete Your Profile",
+    "subtitle": "Help others recognize you and build your presence",
+    "profilePhoto": {
+      "title": "Profile Photo",
+      "uploadButton": "Upload a photo",
+      "helpText": "Recommended formats: JPG, PNG. Recommended size: 400x400px minimum"
+    },
+    "coverPhoto": {
+      "title": "Cover Image",
+      "uploadButton": "Upload a cover image",
+      "helpText": "Recommended formats: JPG, PNG. Recommended size: 1200x400px minimum"
+    },
+    "personalDetails": {
+      "title": "Personal Details",
+      "about": {
+        "label": "About You",
+        "placeholder": "Tell us about yourself, your passions, your journey...",
+        "counter": "{{count}}/500"
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "Your city, country"
+      },
+      "website": {
+        "label": "Website",
+        "placeholder": "https://your-site.com"
+      },
+      "dateOfBirth": {
+        "label": "Date of Birth"
+      },
+      "gender": {
+        "label": "Gender",
+        "placeholder": "Select your gender",
+        "options": {
+          "homme": "Male",
+          "femme": "Female",
+          "autre": "Other",
+          "notSpecified": "Prefer not to say"
+        }
+      },
+      "socialLinks": {
+        "label": "Social Links",
+        "linkedin": "LinkedIn Profile",
+        "twitter": "Twitter/X Profile"
+      }
+    },
+    "interests": {
+      "label": "Interests",
+      "addButton": "Add",
+      "helpText": "Select your interests to connect with people who share your passions",
+      "defaults": {
+        "technology": "Technology",
+        "travel": "Travel",
+        "photography": "Photography",
+        "cooking": "Cooking",
+        "sports": "Sports",
+        "reading": "Reading",
+        "music": "Music",
+        "art": "Art",
+        "gaming": "Gaming",
+        "fitness": "Fitness"
+      }
+    },
+    "actions": {
+      "skip": "Skip for now",
+      "complete": "Complete My Profile"
+    }
   }
 }

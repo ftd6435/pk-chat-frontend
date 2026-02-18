@@ -265,5 +265,77 @@
       "download": "Télécharger le fichier",
       "fileSize": "{{size}}"
     }
+  },
+  "profileSetup": {
+    "header": {
+      "step": "Étape {{current}} sur {{total}}"
+    },
+    "title": "Complétez votre profil",
+    "subtitle": "Aidez les autres à vous reconnaître et construisez votre présence",
+    "profilePhoto": {
+      "title": "Photo de profil",
+      "uploadButton": "Télécharger une photo",
+      "helpText": "Formats recommandés : JPG, PNG. Taille recommandée : 400x400px minimum"
+    },
+    "coverPhoto": {
+      "title": "Image de couverture",
+      "uploadButton": "Télécharger une image de couverture",
+      "helpText": "Formats recommandés : JPG, PNG. Taille recommandée : 1200x400px minimum"
+    },
+    "personalDetails": {
+      "title": "Détails personnels",
+      "about": {
+        "label": "À propos de vous",
+        "placeholder": "Parlez-nous de vous, vos passions, votre parcours...",
+        "counter": "{{count}}/500"
+      },
+      "location": {
+        "label": "Localisation",
+        "placeholder": "Votre ville, pays"
+      },
+      "website": {
+        "label": "Site web",
+        "placeholder": "https://votre-site.com"
+      },
+      "dateOfBirth": {
+        "label": "Date de naissance"
+      },
+      "gender": {
+        "label": "Genre",
+        "placeholder": "Sélectionnez votre genre",
+        "options": {
+          "homme": "Homme",
+          "femme": "Femme",
+          "autre": "Autre",
+          "notSpecified": "Ne pas spécifier"
+        }
+      },
+      "socialLinks": {
+        "label": "Liens sociaux",
+        "linkedin": "Profil LinkedIn",
+        "twitter": "Profil Twitter/X"
+      }
+    },
+    "interests": {
+      "label": "Centres d'intérêt",
+      "addButton": "Ajouter",
+      "helpText": "Sélectionnez vos centres d'intérêt pour connecter avec des personnes partageant vos passions",
+      "defaults": {
+        "technology": "Technologie",
+        "travel": "Voyage",
+        "photography": "Photographie",
+        "cooking": "Cuisine",
+        "sports": "Sport",
+        "reading": "Lecture",
+        "music": "Musique",
+        "art": "Art",
+        "gaming": "Gaming",
+        "fitness": "Fitness"
+      }
+    },
+    "actions": {
+      "skip": "Passer pour l'instant",
+      "complete": "Terminer mon profil"
+    }
   }
 }
