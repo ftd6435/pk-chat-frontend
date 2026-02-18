@@ -21,7 +21,7 @@ export class FriendCardComponent {
   getMutualFriendsText(): string {
     const count = this.friend.mutualFriendsCount;
     const key = count === 1 ? 'friends.mutualFriends.one' : 'friends.mutualFriends.other';
-    return this.translationService.translate(key, { count });
+    return this.translationService.translate(key, { count: count.toString() });
   }
 
   getLastActiveText(): string {

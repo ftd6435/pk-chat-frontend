@@ -35,7 +35,7 @@ export class TranslationService {
     }
   }
 
-  translate(key: string): string {
+  translate(key: string, params?: { [key: string]: string }): string {
     const keys = key.split('.');
     let result: any = this.translations;
 
@@ -45,6 +45,13 @@ export class TranslationService {
       } else {
         return key; // Return key if translation not found
       }
+    }
+
+    // Replace parameters in the translation string
+    if (params && typeof result === 'string') {
+      Object.keys(params).forEach(paramKey => {
+        result = result.replace(new RegExp(`{{${paramKey}}}`, 'g'), params[paramKey]);
+      });
     }
 
     return result;

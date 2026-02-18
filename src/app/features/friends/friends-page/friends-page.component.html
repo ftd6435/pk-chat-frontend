@@ -106,7 +106,7 @@
 
       <!-- Online Friends List -->
       <div class="online-friends-section">
-        <h3>{{ translationService.translate('friends.onlineFriends.title', { count: onlineFriends.length }) }}</h3>
+        <h3>{{ translationService.translate('friends.onlineFriends.title', { count: onlineFriends.length.toString() }) }}</h3>
         
         <div class="online-friends-list">
           <app-online-friend-item
