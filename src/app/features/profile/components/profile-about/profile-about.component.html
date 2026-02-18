@@ -1,0 +1,57 @@
+<div class="profile-about">
+  <h3>{{ translationService.translate('profile.about.title') }}</h3>
+  
+  <div class="about-items">
+    
+    <!-- Full Bio -->
+    <div class="about-item">
+      <div class="icon">
+        <iconify-icon icon="lucide:user"></iconify-icon>
+      </div>
+      <div class="content">
+        <div class="label">{{ translationService.translate('profile.about.fullBio') }}</div>
+        <div class="value">{{ profile.fullBio }}</div>
+      </div>
+    </div>
+    
+    <!-- Website -->
+    <div class="about-item">
+      <div class="icon">
+        <iconify-icon icon="lucide:link"></iconify-icon>
+      </div>
+      <div class="content">
+        <div class="label">{{ translationService.translate('profile.about.website') }}</div>
+        <a [href]="profile.website" target="_blank" rel="noopener noreferrer" class="link">{{ profile.website }}</a>
+      </div>
+    </div>
+    
+    <!-- Birthday -->
+    <div class="about-item">
+      <div class="icon">
+        <iconify-icon icon="lucide:calendar"></iconify-icon>
+      </div>
+      <div class="content">
+        <div class="label">{{ translationService.translate('profile.about.birthday') }}</div>
+        <div class="value">{{ getBirthdayFormatted() }}</div>
+      </div>
+    </div>
+    
+    <!-- Interests -->
+    <div class="about-item">
+      <div class="icon">
+        <iconify-icon icon="lucide:heart"></iconify-icon>
+      </div>
+      <div class="content">
+        <div class="label">{{ translationService.translate('profile.about.interests') }}</div>
+        <div class="interests-tags">
+          <span 
+            *ngFor="let interest of profile.interests"
+            class="interest-tag">
+            {{ interest }}
+          </span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

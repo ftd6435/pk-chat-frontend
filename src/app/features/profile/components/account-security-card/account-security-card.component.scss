@@ -1,0 +1,126 @@
+@import '../../../../../styles/variables';
+
+.account-security-card {
+  background: white;
+  box-shadow: $shadow-moderate;
+  padding: $spacing-comfortable;
+  border-radius: $radius-large;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 $spacing-standard 0;
+}
+
+.security-items {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-standard;
+}
+
+.security-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-compact;
+}
+
+.security-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-primary;
+}
+
+.meta {
+  font-size: 12px;
+  color: $text-tertiary;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: $text-tertiary;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $status-offline;
+
+  &.active {
+    background: $status-online;
+  }
+}
+
+.change-btn {
+  background: transparent;
+  border: none;
+  color: $primary-base;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 200ms ease;
+
+  &:hover {
+    color: $primary-lighter;
+    background: $bg-container-secondary;
+  }
+}
+
+.security-settings-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-compact;
+  padding: $spacing-compact;
+  background: transparent;
+  border: none;
+  color: $primary-base;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: $spacing-compact;
+  cursor: pointer;
+  transition: all 200ms ease;
+  margin-top: 4px;
+
+  iconify-icon {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background: $bg-container-secondary;
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-mobile) {
+  .account-security-card {
+    padding: $spacing-standard;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .security-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .change-btn {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="profile-tabs-card">
+  <div class="tabs-container">
+    
+    <button 
+      *ngFor="let tab of tabs"
+      [class.active]="activeTab === tab.id"
+      (click)="selectTab(tab.id)"
+      class="tab">
+      <span>{{ translationService.translate(tab.translationKey) }}</span>
+    </button>
+    
+  </div>
+</div>

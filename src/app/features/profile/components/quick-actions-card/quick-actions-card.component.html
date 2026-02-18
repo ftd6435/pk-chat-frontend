@@ -1,0 +1,15 @@
+<div class="quick-actions-card">
+  <h3>{{ translationService.translate('profile.quickActions.title') }}</h3>
+  
+  <div class="actions-list">
+    
+    <button 
+      *ngFor="let action of quickActions"
+      class="action-button"
+      (click)="onActionClick(action.id)">
+      <iconify-icon [icon]="action.icon"></iconify-icon>
+      <span>{{ translationService.translate(action.translationKey) }}</span>
+    </button>
+    
+  </div>
+</div>

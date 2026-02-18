@@ -1,0 +1,42 @@
+<div class="profile-stats">
+  
+  <!-- Friends Card -->
+  <div class="stat-card">
+    <div class="stat-content">
+      <div class="icon-container">
+        <iconify-icon icon="lucide:users"></iconify-icon>
+      </div>
+      <div class="stat-data">
+        <div class="value">{{ stats.friends }}</div>
+        <div class="label">{{ translationService.translate('profile.stats.friends') }}</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Communities Card -->
+  <div class="stat-card">
+    <div class="stat-content">
+      <div class="icon-container">
+        <iconify-icon icon="lucide:users-2"></iconify-icon>
+      </div>
+      <div class="stat-data">
+        <div class="value">{{ stats.communities }}</div>
+        <div class="label">{{ translationService.translate('profile.stats.communities') }}</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Messages Card -->
+  <div class="stat-card">
+    <div class="stat-content">
+      <div class="icon-container">
+        <iconify-icon icon="lucide:message-circle"></iconify-icon>
+      </div>
+      <div class="stat-data">
+        <div class="value">{{ stats.messages | number }}</div>
+        <div class="label">{{ translationService.translate('profile.stats.messages') }}</div>
+      </div>
+    </div>
+  </div>
+  
+</div>

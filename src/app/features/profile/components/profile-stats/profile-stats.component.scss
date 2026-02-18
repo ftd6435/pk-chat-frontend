@@ -1,0 +1,81 @@
+@import '../../../../../styles/variables';
+
+.profile-stats {
+  display: flex;
+  gap: $spacing-comfortable;
+  margin-bottom: $spacing-comfortable;
+}
+
+.stat-card {
+  flex: 1;
+  background: white;
+  box-shadow: $shadow-moderate;
+  padding: $spacing-comfortable;
+  border-radius: $radius-large;
+  transition: all 200ms ease;
+
+  &:hover {
+    box-shadow: $shadow-pronounced;
+    transform: translateY(-2px);
+  }
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: $spacing-standard;
+}
+
+.icon-container {
+  width: 32px;
+  height: 32px;
+  background: $bg-container-secondary;
+  border-radius: $radius-small;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  iconify-icon {
+    font-size: 16px;
+    color: $primary-base;
+  }
+}
+
+.stat-data {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: 600;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.label {
+  font-size: 14px;
+  color: $text-secondary;
+}
+
+// Responsive
+@media (max-width: $breakpoint-mobile) {
+  .profile-stats {
+    flex-direction: column;
+    gap: $spacing-compact;
+  }
+
+  .stat-card {
+    padding: $spacing-standard;
+  }
+
+  .value {
+    font-size: 20px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+}

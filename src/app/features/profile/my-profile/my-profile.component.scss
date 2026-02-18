@@ -1,0 +1,69 @@
+@import '../../../../styles/variables';
+
+.my-profile-page {
+  min-height: 100vh;
+  background: $bg-page;
+}
+
+.profile-layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+.profile-main {
+  flex: 1;
+  padding: $spacing-comfortable;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.profile-sidebar {
+  width: 320px;
+  padding: $spacing-comfortable;
+  flex-shrink: 0;
+}
+
+.tab-content {
+  background: white;
+  padding: $spacing-comfortable;
+  border-radius: 0 0 $radius-large $radius-large;
+  box-shadow: $shadow-moderate;
+}
+
+.content-left {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-comfortable;
+}
+
+// Responsive Design
+
+// Tablet (768px - 1023px)
+@media (max-width: $breakpoint-tablet) {
+  .profile-sidebar {
+    display: none;
+  }
+
+  .profile-main {
+    padding: $spacing-standard;
+  }
+
+  .tab-content {
+    padding: $spacing-standard;
+  }
+}
+
+// Mobile (<768px)
+@media (max-width: $breakpoint-mobile) {
+  .profile-layout {
+    flex-direction: column;
+  }
+
+  .profile-main {
+    padding: $spacing-compact;
+  }
+
+  .tab-content {
+    padding: $spacing-compact;
+  }
+}
