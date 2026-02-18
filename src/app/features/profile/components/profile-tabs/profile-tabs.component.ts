@@ -4,7 +4,6 @@ import { TranslationService } from '../../../../core/services/translation.servic
 
 interface Tab {
   id: string;
-  label: string;
   translationKey: string;
 }
 
@@ -21,9 +20,9 @@ export class ProfileTabsComponent {
   @Output() tabChanged = new EventEmitter<string>();
 
   tabs: Tab[] = [
-    { id: 'overview', label: 'Aperçu', translationKey: 'profile.tabs.overview' },
-    { id: 'activity', label: 'Activité', translationKey: 'profile.tabs.activity' },
-    { id: 'friends', label: 'Amis', translationKey: 'profile.tabs.friends' }
+    { id: 'overview', translationKey: 'profile.tabs.overview' },
+    { id: 'activity', translationKey: 'profile.tabs.activity' },
+    { id: 'friends', translationKey: 'profile.tabs.friends' }
   ];
 
   constructor(public translationService: TranslationService) {}

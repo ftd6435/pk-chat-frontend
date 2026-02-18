@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { UserProfile, ProfileStats } from '../../shared/models/user-profile.model';
 import { Activity } from '../../shared/models/activity.model';
+import { AccountSecurity } from '../../shared/models/account-security.model';
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +65,7 @@ export class ProfileDataService {
     ]);
   }
   
-  getAccountSecurity(): Observable<any> {
+  getAccountSecurity(): Observable<AccountSecurity> {
     return of({
       passwordLastChanged: '2024-11-15',
       twoFactorEnabled: true

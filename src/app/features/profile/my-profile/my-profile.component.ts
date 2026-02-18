@@ -13,6 +13,7 @@ import { AccountSecurityCardComponent } from '../components/account-security-car
 import { ProfileDataService } from '../../../core/services/profile-data.service';
 import { UserProfile, ProfileStats } from '../../../shared/models/user-profile.model';
 import { Activity } from '../../../shared/models/activity.model';
+import { AccountSecurity } from '../../../shared/models/account-security.model';
 
 @Component({
   selector: 'app-my-profile',
@@ -37,7 +38,7 @@ export class MyProfileComponent implements OnInit {
   profile!: UserProfile;
   stats!: ProfileStats;
   activities: Activity[] = [];
-  accountSecurity: any;
+  accountSecurity!: AccountSecurity;
   
   activeTab: string = 'overview';
 
