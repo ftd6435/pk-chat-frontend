@@ -85,19 +85,25 @@ export class DashboardDataService {
         id: '1',
         name: 'Lucas Bernard',
         avatar: 'https://i.pravatar.cc/150?img=33',
-        mutualFriendsCount: 2
+        mutualFriendsCount: 2,
+        mutualFriends: [],
+        sharedInterests: []
       },
       {
         id: '2',
         name: 'Amélie Rousseau',
         avatar: 'https://i.pravatar.cc/150?img=34',
-        mutualFriendsCount: 5
+        mutualFriendsCount: 5,
+        mutualFriends: [],
+        sharedInterests: []
       },
       {
         id: '3',
         name: 'Antoine Moreau',
         avatar: 'https://i.pravatar.cc/150?img=35',
-        mutualFriendsCount: 1
+        mutualFriendsCount: 1,
+        mutualFriends: [],
+        sharedInterests: []
       }
     ];
   }

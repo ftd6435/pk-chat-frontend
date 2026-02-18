@@ -396,6 +396,45 @@
       "viewAll": "Voir tous les amis en ligne"
     }
   },
+  "findFriends": {
+    "title": "Découvrir des amis",
+    "subtitle": "Trouvez et connectez-vous avec de nouveaux amis grâce à nos suggestions personnalisées",
+    "search": {
+      "placeholder": "Rechercher par nom ou numéro de téléphone...",
+      "button": "Rechercher"
+    },
+    "filters": {
+      "label": "Filtres avancés:",
+      "location": "Localisation",
+      "mutualFriends": "Amis communs",
+      "interests": "Centres d'intérêt"
+    },
+    "sections": {
+      "suggested": {
+        "title": "Amis suggérés",
+        "subtitle": "Basé sur vos amis communs et centres d'intérêt partagés"
+      },
+      "peopleYouMayKnow": {
+        "title": "Personnes que vous pourriez connaître"
+      }
+    },
+    "actions": {
+      "invite": "Invitation",
+      "inviteSent": "Demande envoyée",
+      "viewProfile": "Voir le profil",
+      "loadMore": "Voir plus de suggestions"
+    },
+    "mutualFriends": {
+      "one": "{{count}} ami en commun",
+      "other": "{{count}} amis en commun"
+    },
+    "context": {
+      "worksAt": "Travaille chez {{company}}",
+      "inYourArea": "Dans votre région",
+      "university": "{{university}}",
+      "similarInterests": "Centres d'intérêt similaires"
+    }
+  },
   "profile": {
     "title": "Mon Profil",
     "actions": {

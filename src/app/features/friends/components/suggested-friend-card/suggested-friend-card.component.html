@@ -1,0 +1,52 @@
+<div class="suggested-friend-card">
+  
+  <!-- Avatar -->
+  <img 
+    [src]="friend.avatar" 
+    [alt]="friend.name"
+    class="avatar">
+  
+  <!-- Friend Info (centered) -->
+  <div class="friend-info">
+    
+    <h3>{{ friend.name }}</h3>
+    
+    <!-- Mutual Friends -->
+    <div class="mutual-friends">
+      <app-mutual-friends-avatars 
+        [friends]="friend.mutualFriends"
+        [count]="friend.mutualFriendsCount">
+      </app-mutual-friends-avatars>
+      <span class="mutual-count">{{ getMutualFriendsText() }}</span>
+    </div>
+    
+    <!-- Interest Tags -->
+    <div class="interest-tags">
+      <span 
+        *ngFor="let interest of friend.sharedInterests"
+        class="interest-tag">
+        {{ interest }}
+      </span>
+    </div>
+    
+  </div>
+  
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    
+    <button 
+      class="invite-btn"
+      (click)="onInviteClick()">
+      <iconify-icon icon="lucide:user-plus"></iconify-icon>
+      <span>{{ translationService.translate('findFriends.actions.invite') }}</span>
+    </button>
+    
+    <button 
+      class="view-profile-btn"
+      (click)="onViewProfileClick()">
+      <iconify-icon icon="lucide:eye"></iconify-icon>
+    </button>
+    
+  </div>
+  
+</div>

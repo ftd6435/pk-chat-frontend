@@ -1,0 +1,7 @@
+<div class="mutual-avatars">
+  <img 
+    *ngFor="let friend of displayedFriends"
+    [src]="friend.avatar"
+    [alt]="friend.name"
+    class="mutual-avatar">
+</div>

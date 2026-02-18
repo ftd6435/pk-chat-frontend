@@ -396,6 +396,45 @@
       "viewAll": "View all online friends"
     }
   },
+  "findFriends": {
+    "title": "Find Friends",
+    "subtitle": "Find and connect with new friends through our personalized suggestions",
+    "search": {
+      "placeholder": "Search by name or phone number...",
+      "button": "Search"
+    },
+    "filters": {
+      "label": "Advanced filters:",
+      "location": "Location",
+      "mutualFriends": "Mutual Friends",
+      "interests": "Interests"
+    },
+    "sections": {
+      "suggested": {
+        "title": "Suggested Friends",
+        "subtitle": "Based on your mutual friends and shared interests"
+      },
+      "peopleYouMayKnow": {
+        "title": "People You May Know"
+      }
+    },
+    "actions": {
+      "invite": "Add Friend",
+      "inviteSent": "Request Sent",
+      "viewProfile": "View Profile",
+      "loadMore": "See More Suggestions"
+    },
+    "mutualFriends": {
+      "one": "{{count}} mutual friend",
+      "other": "{{count}} mutual friends"
+    },
+    "context": {
+      "worksAt": "Works at {{company}}",
+      "inYourArea": "In your area",
+      "university": "{{university}}",
+      "similarInterests": "Similar interests"
+    }
+  },
   "profile": {
     "title": "My Profile",
     "actions": {

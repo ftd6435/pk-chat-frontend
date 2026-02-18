@@ -1,0 +1,79 @@
+<div class="find-friends-page">
+  
+  <!-- Dashboard Sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Page Header with Breadcrumb -->
+    <div class="page-header-section">
+      
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <span>{{ translationService.translate('friends.title') }}</span>
+        <iconify-icon icon="lucide:chevron-right" class="chevron-icon"></iconify-icon>
+        <span>{{ translationService.translate('findFriends.title') }}</span>
+      </div>
+      
+      <!-- Page Title -->
+      <h1>{{ translationService.translate('findFriends.title') }}</h1>
+      
+      <!-- Subtitle -->
+      <p class="subtitle">{{ translationService.translate('findFriends.subtitle') }}</p>
+      
+    </div>
+    
+    <!-- Search & Filter Bar -->
+    <app-search-filter-bar
+      [searchQuery]="searchQuery"
+      [activeFilters]="activeFilters"
+      (searchSubmitted)="onSearchSubmit($event)"
+      (filterToggled)="toggleFilter($event)">
+    </app-search-filter-bar>
+    
+    <!-- Suggested Friends Section -->
+    <section class="suggested-friends-section">
+      <div class="section-header">
+        <h2>{{ translationService.translate('findFriends.sections.suggested.title') }}</h2>
+        <p>{{ translationService.translate('findFriends.sections.suggested.subtitle') }}</p>
+      </div>
+      
+      <div class="suggested-friends-grid">
+        <app-suggested-friend-card
+          *ngFor="let friend of suggestedFriends; trackBy: trackByFriendId"
+          [friend]="friend"
+          (inviteClicked)="sendFriendRequest($event)"
+          (viewProfileClicked)="viewProfile($event)">
+        </app-suggested-friend-card>
+      </div>
+    </section>
+    
+    <!-- People You May Know Section -->
+    <section class="people-you-may-know-section">
+      <div class="section-header">
+        <h2>{{ translationService.translate('findFriends.sections.peopleYouMayKnow.title') }}</h2>
+      </div>
+      
+      <div class="people-you-may-know-grid">
+        <app-people-you-may-know-card
+          *ngFor="let person of peopleYouMayKnow; trackBy: trackByPersonId"
+          [person]="person"
+          (inviteClicked)="sendFriendRequest($event)">
+        </app-people-you-may-know-card>
+      </div>
+    </section>
+    
+    <!-- Load More Button -->
+    <div class="load-more-container">
+      <button 
+        class="load-more-btn"
+        (click)="loadMoreSuggestions()">
+        <span>{{ translationService.translate('findFriends.actions.loadMore') }}</span>
+        <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+      </button>
+    </div>
+    
+  </main>
+  
+</div>

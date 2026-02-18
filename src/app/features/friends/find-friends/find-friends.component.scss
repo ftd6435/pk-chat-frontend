@@ -1,0 +1,149 @@
+@import '../../../../styles/variables';
+
+.find-friends-page {
+  display: flex;
+  min-height: 100vh;
+  background: $bg-page;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 256px;
+  padding: $spacing-relaxed;
+  
+  @media (max-width: $breakpoint-tablet) {
+    margin-left: 0;
+    padding: $spacing-standard;
+  }
+}
+
+// Page Header with Breadcrumb
+.page-header-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-standard;
+  margin-bottom: $spacing-comfortable;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: $spacing-tight;
+  font-size: 14px;
+  color: $text-secondary;
+  
+  .chevron-icon {
+    font-size: 12px;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: $text-secondary;
+  margin: 0;
+}
+
+// Sections
+section {
+  margin-bottom: $spacing-relaxed;
+}
+
+.section-header {
+  margin-bottom: $spacing-comfortable;
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 $spacing-tight 0;
+  }
+  
+  p {
+    font-size: 16px;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// Suggested Friends Grid (3 columns)
+.suggested-friends-section {
+  margin-top: $spacing-comfortable;
+}
+
+.suggested-friends-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-comfortable;
+  
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-standard;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// People You May Know Grid (4 columns)
+.people-you-may-know-section {
+  margin-top: $spacing-section;
+}
+
+.people-you-may-know-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-standard;
+  
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-compact;
+  }
+}
+
+// Load More Button
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-relaxed;
+}
+
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-tight;
+  background: white;
+  box-shadow: $shadow-subtle;
+  padding: $spacing-compact $spacing-relaxed;
+  border-radius: $radius-medium;
+  border: none;
+  cursor: pointer;
+  color: $primary-base;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 200ms ease;
+  
+  iconify-icon {
+    font-size: 16px;
+  }
+  
+  &:hover {
+    box-shadow: $shadow-moderate;
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
