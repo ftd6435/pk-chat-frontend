@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DashboardHeaderComponent } from './components/dashboard-header/dashboard-header.component';
 import { DashboardSidebarComponent } from './components/dashboard-sidebar/dashboard-sidebar.component';
 import { ConversationCardComponent } from './components/conversation-card/conversation-card.component';
 import { CommunityUpdateCardComponent } from './components/community-update-card/community-update-card.component';
@@ -20,7 +19,6 @@ import { OnlineFriend } from '../../shared/models/online-friend.model';
   standalone: true,
   imports: [
     CommonModule,
-    DashboardHeaderComponent,
     DashboardSidebarComponent,
     ConversationCardComponent,
     CommunityUpdateCardComponent,
