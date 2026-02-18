@@ -1,0 +1,18 @@
+<div class="stats-card">
+  <h3>{{ translationService.translate('friends.stats.title') }}</h3>
+  
+  <div class="stat-item">
+    <span class="label">{{ translationService.translate('friends.stats.total') }}</span>
+    <span class="value large">{{ stats.totalFriends }}</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="label">{{ translationService.translate('friends.stats.online') }}</span>
+    <span class="value medium online">{{ stats.onlineFriends }}</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="label">{{ translationService.translate('friends.stats.pending') }}</span>
+    <span class="value medium pending">{{ stats.pendingRequests }}</span>
+  </div>
+</div>

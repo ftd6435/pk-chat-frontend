@@ -1,0 +1,124 @@
+<div class="friends-page">
+  <!-- Dashboard Header (Top bar) -->
+  <app-dashboard-header></app-dashboard-header>
+
+  <!-- Three-panel layout -->
+  <div class="layout-container">
+    <!-- Left Sidebar -->
+    <app-dashboard-sidebar [activeItem]="'friends'"></app-dashboard-sidebar>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>{{ translationService.translate('friends.title') }}</h1>
+        <p>{{ translationService.translate('friends.subtitle') }}</p>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="tab-navigation">
+        <button 
+          *ngFor="let tab of tabs"
+          [class.active]="activeTab === tab.id"
+          (click)="setActiveTab(tab.id)">
+          <span>{{ tab.label }}</span>
+          <span *ngIf="tab.badge" class="badge">{{ tab.badge }}</span>
+        </button>
+      </div>
+
+      <!-- Filter Bar -->
+      <app-friends-filter-bar
+        [searchQuery]="searchQuery"
+        [sortBy]="sortBy"
+        [mutualFriendsOnly]="mutualFriendsOnly"
+        (searchChanged)="onSearchChange($event)"
+        (sortChanged)="onSortChange($event)"
+        (mutualFriendsToggled)="onMutualFriendsToggle($event)">
+      </app-friends-filter-bar>
+
+      <!-- Friends Grid -->
+      <div class="friends-grid">
+        <app-friend-card
+          *ngFor="let friend of friends; trackBy: trackByFriend"
+          [friend]="friend"
+          (messageClicked)="onFriendMessage($event)"
+          (moreOptionsClicked)="onFriendMoreOptions($event)">
+        </app-friend-card>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" *ngIf="totalPages > 1">
+        <!-- Previous button -->
+        <button 
+          class="nav-btn"
+          [disabled]="currentPage === 1"
+          (click)="previousPage()">
+          <iconify-icon icon="lucide:chevron-left"></iconify-icon>
+          <span>{{ translationService.translate('friends.pagination.previous') }}</span>
+        </button>
+        
+        <!-- Page numbers -->
+        <div class="page-numbers">
+          <button 
+            *ngFor="let page of getPageNumbers(); trackBy: trackByPage"
+            [class.active]="currentPage === page"
+            (click)="goToPage(page)">
+            {{ page }}
+          </button>
+        </div>
+        
+        <!-- Next button -->
+        <button 
+          class="nav-btn"
+          [disabled]="currentPage === totalPages"
+          (click)="nextPage()">
+          <span>{{ translationService.translate('friends.pagination.next') }}</span>
+          <iconify-icon icon="lucide:chevron-right"></iconify-icon>
+        </button>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+      <!-- Stats Card -->
+      <app-friends-stats-card [stats]="stats"></app-friends-stats-card>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions-section">
+        <h3>{{ translationService.translate('friends.quickActions.title') }}</h3>
+        
+        <app-quick-action-card
+          icon="lucide:user-plus"
+          [title]="translationService.translate('friends.quickActions.findFriends.title')"
+          [description]="translationService.translate('friends.quickActions.findFriends.description')"
+          iconBgColor="primary"
+          (clicked)="onQuickActionClick('findFriends')">
+        </app-quick-action-card>
+
+        <app-quick-action-card
+          icon="lucide:users"
+          [title]="translationService.translate('friends.quickActions.createGroup.title')"
+          [description]="translationService.translate('friends.quickActions.createGroup.description')"
+          iconBgColor="accent"
+          (clicked)="onQuickActionClick('createGroup')">
+        </app-quick-action-card>
+      </div>
+
+      <!-- Online Friends List -->
+      <div class="online-friends-section">
+        <h3>{{ translationService.translate('friends.onlineFriends.title', { count: onlineFriends.length }) }}</h3>
+        
+        <div class="online-friends-list">
+          <app-online-friend-item
+            *ngFor="let friend of onlineFriends; trackBy: trackByOnlineFriend"
+            [friend]="friend">
+          </app-online-friend-item>
+        </div>
+
+        <button class="view-all-btn">
+          {{ translationService.translate('friends.onlineFriends.viewAll') }}
+        </button>
+      </div>
+    </aside>
+  </div>
+</div>

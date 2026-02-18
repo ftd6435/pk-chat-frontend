@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslationService } from '../../../../core/services/translation.service';
@@ -12,7 +12,7 @@ import { TranslationService } from '../../../../core/services/translation.servic
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardSidebarComponent {
-  activeItem = 'dashboard';
+  @Input() activeItem = 'dashboard';
 
   navItems = [
     { id: 'dashboard', icon: 'lucide:layout-dashboard', translationKey: 'dashboard.sidebar.dashboard' },
