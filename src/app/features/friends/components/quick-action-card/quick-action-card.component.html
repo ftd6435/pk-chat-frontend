@@ -1,0 +1,10 @@
+<button class="quick-action-card" (click)="onClick()">
+  <div class="icon-container" [ngClass]="iconBgColor">
+    <iconify-icon [icon]="icon"></iconify-icon>
+  </div>
+  
+  <div class="content">
+    <h4>{{ title }}</h4>
+    <p>{{ description }}</p>
+  </div>
+</button>

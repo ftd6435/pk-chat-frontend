@@ -1,0 +1,31 @@
+<div class="filter-bar">
+  <!-- Search input -->
+  <div class="search-input">
+    <iconify-icon icon="lucide:search"></iconify-icon>
+    <input 
+      type="text" 
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+      [placeholder]="translationService.translate('friends.search.placeholder')">
+  </div>
+  
+  <!-- Sort dropdown -->
+  <div class="sort-dropdown" (click)="toggleSortDropdown()">
+    <span>{{ getSortLabel() }}</span>
+    <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+  </div>
+  
+  <!-- Toggle switch -->
+  <label class="toggle-container">
+    <input 
+      type="checkbox" 
+      [(ngModel)]="mutualFriendsOnly"
+      (change)="onToggleChange()"
+      class="toggle-input">
+    <div class="toggle-switch">
+      <div class="toggle-track"></div>
+      <div class="toggle-thumb"></div>
+    </div>
+    <span class="toggle-label">{{ translationService.translate('friends.filter.mutualOnly') }}</span>
+  </label>
+</div>

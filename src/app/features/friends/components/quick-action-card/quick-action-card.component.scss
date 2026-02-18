@@ -1,0 +1,66 @@
+@import '../../../../../styles/variables';
+
+.quick-action-card {
+  background: white;
+  box-shadow: $shadow-moderate;
+  padding: $spacing-standard;
+  border-radius: $radius-large;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: box-shadow 200ms ease;
+  text-align: left;
+
+  &:hover {
+    box-shadow: $shadow-pronounced;
+  }
+}
+
+.icon-container {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-small;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.primary {
+    background: $primary-base;
+    
+    iconify-icon {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+  }
+
+  &.accent {
+    background: $accent-gold;
+    
+    iconify-icon {
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+
+  h4 {
+    font-size: 1rem; // base
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 2px 0;
+  }
+
+  p {
+    font-size: 0.875rem; // sm
+    color: $text-secondary;
+    margin: 0;
+  }
+}

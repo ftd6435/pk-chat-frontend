@@ -337,5 +337,63 @@
       "skip": "Passer pour l'instant",
       "complete": "Terminer mon profil"
     }
+  },
+  "friends": {
+    "title": "Amis",
+    "subtitle": "Gérez votre réseau d'amis et découvrez de nouvelles connexions",
+    "tabs": {
+      "all": "Tous mes amis",
+      "requests": "Demandes d'amis",
+      "discover": "Découvrir des amis"
+    },
+    "search": {
+      "placeholder": "Rechercher par nom d'ami..."
+    },
+    "filter": {
+      "sortBy": "Récemment ajoutés",
+      "mutualOnly": "Amis communs uniquement"
+    },
+    "actions": {
+      "message": "Message",
+      "moreOptions": "Plus d'options"
+    },
+    "lastActive": {
+      "online": "En ligne",
+      "minutes": "Actif il y a {{count}} min",
+      "hours": "Actif il y a {{count}}h",
+      "yesterday": "Actif hier",
+      "days": "Actif il y a {{count}} jours",
+      "week": "Actif il y a {{count}} semaine",
+      "weeks": "Actif il y a {{count}} semaines"
+    },
+    "mutualFriends": {
+      "one": "{{count}} ami en commun",
+      "other": "{{count}} amis en commun"
+    },
+    "pagination": {
+      "previous": "Précédent",
+      "next": "Suivant"
+    },
+    "stats": {
+      "title": "Statistiques",
+      "total": "Total d'amis",
+      "online": "Amis en ligne",
+      "pending": "Demandes en attente"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "findFriends": {
+        "title": "Trouver des amis",
+        "description": "Découvrez de nouvelles connexions"
+      },
+      "createGroup": {
+        "title": "Créer un groupe",
+        "description": "Rassemblez vos amis"
+      }
+    },
+    "onlineFriends": {
+      "title": "Amis en ligne ({{count}})",
+      "viewAll": "Voir tous les amis en ligne"
+    }
   }
 }

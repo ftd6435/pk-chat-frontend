@@ -1,0 +1,38 @@
+<div class="friend-card">
+  <!-- Profile photo with online status -->
+  <div class="avatar-container">
+    <img 
+      [src]="friend.avatar" 
+      [alt]="friend.name"
+      class="avatar">
+    
+    <div 
+      class="status-indicator"
+      [class.online]="friend.isOnline"
+      [class.offline]="!friend.isOnline">
+    </div>
+  </div>
+  
+  <!-- Friend info -->
+  <div class="friend-info">
+    <h3>{{ friend.name }}</h3>
+    <p class="mutual-friends">{{ getMutualFriendsText() }}</p>
+    <p class="last-active">{{ getLastActiveText() }}</p>
+  </div>
+  
+  <!-- Action buttons -->
+  <div class="actions">
+    <button 
+      class="message-btn"
+      (click)="onMessageClick()">
+      <iconify-icon icon="lucide:message-circle"></iconify-icon>
+      <span>{{ translationService.translate('friends.actions.message') }}</span>
+    </button>
+    
+    <button 
+      class="more-btn"
+      (click)="onMoreOptionsClick()">
+      <iconify-icon icon="lucide:more-horizontal"></iconify-icon>
+    </button>
+  </div>
+</div>

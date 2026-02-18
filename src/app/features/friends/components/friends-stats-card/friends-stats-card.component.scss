@@ -1,0 +1,51 @@
+@import '../../../../../styles/variables';
+
+.stats-card {
+  background: white;
+  box-shadow: $shadow-moderate;
+  padding: $spacing-comfortable;
+  border-radius: $radius-large;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-standard;
+
+  h3 {
+    font-size: 1.125rem; // lg
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .label {
+    font-size: 0.875rem; // sm
+    color: $text-secondary;
+  }
+
+  .value {
+    font-weight: 600;
+
+    &.large {
+      font-size: 1.5rem; // 2xl
+      color: $text-primary;
+    }
+
+    &.medium {
+      font-size: 1.125rem; // lg
+    }
+
+    &.online {
+      color: $status-online;
+    }
+
+    &.pending {
+      color: $accent-gold;
+    }
+  }
+}

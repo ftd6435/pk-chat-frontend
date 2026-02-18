@@ -337,5 +337,63 @@
       "skip": "Skip for now",
       "complete": "Complete My Profile"
     }
+  },
+  "friends": {
+    "title": "Friends",
+    "subtitle": "Manage your friend network and discover new connections",
+    "tabs": {
+      "all": "All My Friends",
+      "requests": "Friend Requests",
+      "discover": "Discover Friends"
+    },
+    "search": {
+      "placeholder": "Search by friend name..."
+    },
+    "filter": {
+      "sortBy": "Recently Added",
+      "mutualOnly": "Mutual friends only"
+    },
+    "actions": {
+      "message": "Message",
+      "moreOptions": "More options"
+    },
+    "lastActive": {
+      "online": "Online",
+      "minutes": "Active {{count}} min ago",
+      "hours": "Active {{count}}h ago",
+      "yesterday": "Active yesterday",
+      "days": "Active {{count}} days ago",
+      "week": "Active {{count}} week ago",
+      "weeks": "Active {{count}} weeks ago"
+    },
+    "mutualFriends": {
+      "one": "{{count}} mutual friend",
+      "other": "{{count}} mutual friends"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "stats": {
+      "title": "Statistics",
+      "total": "Total friends",
+      "online": "Friends online",
+      "pending": "Pending requests"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "findFriends": {
+        "title": "Find Friends",
+        "description": "Discover new connections"
+      },
+      "createGroup": {
+        "title": "Create Group",
+        "description": "Bring your friends together"
+      }
+    },
+    "onlineFriends": {
+      "title": "Online Friends ({{count}})",
+      "viewAll": "View all online friends"
+    }
   }
 }
