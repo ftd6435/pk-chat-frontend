@@ -103,7 +103,7 @@ export class FriendsDataService {
       avatar: 'https://i.pravatar.cc/150?img=52',
       isOnline: false,
       mutualFriendsCount: 3,
-      lastActive: '1 day'
+      lastActive: '1 days'
     },
     {
       id: '13',
@@ -166,11 +166,13 @@ export class FriendsDataService {
   }
   
   getFriendStats(): Observable<FriendStats> {
+    const totalCount = this.mockFriends.length;
     const onlineCount = this.mockFriends.filter(f => f.isOnline).length;
+    
     return of({
-      totalFriends: 142,
-      onlineFriends: 23,
-      pendingRequests: 4
+      totalFriends: totalCount,
+      onlineFriends: onlineCount,
+      pendingRequests: 4 // This would come from a separate requests endpoint
     });
   }
   

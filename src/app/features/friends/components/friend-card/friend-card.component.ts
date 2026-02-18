@@ -38,7 +38,7 @@ export class FriendCardComponent {
       }
       
       // Parse time strings like "2h", "3 days", "1 week"
-      const match = lastActive.match(/^(\d+)\s*(min|h|day|days|week|weeks?)$/);
+      const match = lastActive.match(/^(\d+)\s*(min|h|days?|weeks?)$/);
       if (match) {
         const [, count, unit] = match;
         

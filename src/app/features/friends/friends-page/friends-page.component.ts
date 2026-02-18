@@ -38,7 +38,7 @@ interface Tab {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FriendsPageComponent implements OnInit {
-  activeTab: 'tous' | 'requests' | 'discover' = 'tous';
+  activeTab: 'all' | 'requests' | 'discover' = 'all';
   
   friends: Friend[] = [];
   allFriends: Friend[] = [];
@@ -70,7 +70,7 @@ export class FriendsPageComponent implements OnInit {
   initializeTabs(): void {
     this.tabs = [
       { 
-        id: 'tous', 
+        id: 'all', 
         label: this.translationService.translate('friends.tabs.all')
       },
       { 
@@ -152,8 +152,11 @@ export class FriendsPageComponent implements OnInit {
   }
 
   setActiveTab(tabId: string): void {
-    this.activeTab = tabId as any;
-    // Load different data based on tab (implement later for requests and discover)
+    // Validate tab ID before assignment
+    if (tabId === 'all' || tabId === 'requests' || tabId === 'discover') {
+      this.activeTab = tabId;
+      // TODO: Load different data based on tab (implement later for requests and discover)
+    }
   }
 
   goToPage(page: number): void {
@@ -195,23 +198,22 @@ export class FriendsPageComponent implements OnInit {
   }
 
   onFriendMessage(friendId: string): void {
-    console.log('Message friend:', friendId);
-    // Navigate to chat with this friend
+    // TODO: Navigate to chat with this friend
+    // Example: this.router.navigate(['/discussion', friendId]);
   }
 
   onFriendMoreOptions(friendId: string): void {
-    console.log('More options for friend:', friendId);
-    // Show options menu
+    // TODO: Show options menu (unfriend, block, etc.)
   }
 
   onQuickActionClick(action: string): void {
-    console.log('Quick action:', action);
-    // Handle quick action
+    // TODO: Handle quick action navigation
+    // Example: this.router.navigate(['/discover']) for findFriends
   }
 
   onOnlineFriendMessage(friendId: string): void {
-    console.log('Message online friend:', friendId);
-    // Navigate to chat with this friend
+    // TODO: Navigate to chat with this friend
+    // Example: this.router.navigate(['/discussion', friendId]);
   }
 
   trackByFriend(index: number, friend: Friend): string {
