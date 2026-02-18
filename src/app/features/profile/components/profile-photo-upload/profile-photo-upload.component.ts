@@ -13,6 +13,7 @@ import { TranslationService } from '../../../../core/services/translation.servic
 export class ProfilePhotoUploadComponent {
   @Input() currentPhoto?: string;
   @Output() photoSelected = new EventEmitter<File>();
+  @Output() uploadError = new EventEmitter<string>();
   
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
@@ -31,7 +32,7 @@ export class ProfilePhotoUploadComponent {
       if (this.isValidImageType(file)) {
         this.photoSelected.emit(file);
       } else {
-        alert('Please select a valid image file (JPG, PNG, or WEBP)');
+        this.uploadError.emit('Please select a valid image file (JPG, PNG, or WEBP)');
       }
     }
   }

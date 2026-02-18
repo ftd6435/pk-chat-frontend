@@ -3,7 +3,7 @@
   <header class="profile-setup-header">
     <div class="header-left">
       <iconify-icon icon="lucide:message-circle" class="brand-icon"></iconify-icon>
-      <span class="brand-name">ConnectHub</span>
+      <span class="brand-name">{{ translationService.translate('header.brand') }}</span>
     </div>
     
     <div class="header-right">
@@ -15,9 +15,7 @@
             [class.filled]="filled"
           ></span>
         </div>
-        <span class="step-text">
-          {{ translationService.translate('profileSetup.header.step').replace('{{current}}', currentStep.toString()).replace('{{total}}', totalSteps.toString()) }}
-        </span>
+        <span class="step-text">{{ stepText }}</span>
       </div>
     </div>
   </header>
@@ -36,6 +34,7 @@
         <app-profile-photo-upload
           [currentPhoto]="profilePhotoPreview"
           (photoSelected)="onProfilePhotoSelected($event)"
+          (uploadError)="onProfilePhotoError($event)"
         ></app-profile-photo-upload>
       </section>
 
@@ -44,6 +43,7 @@
         <app-cover-photo-upload
           [currentCover]="coverPhotoPreview"
           (coverSelected)="onCoverPhotoSelected($event)"
+          (uploadError)="onCoverPhotoError($event)"
         ></app-cover-photo-upload>
       </section>
 
@@ -60,6 +60,7 @@
         <app-interest-selector
           [selectedInterests]="profileData.interests"
           (interestsChanged)="onInterestsChanged($event)"
+          (interestError)="onInterestError($event)"
         ></app-interest-selector>
       </section>
 

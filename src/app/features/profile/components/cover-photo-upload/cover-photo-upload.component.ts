@@ -13,6 +13,7 @@ import { TranslationService } from '../../../../core/services/translation.servic
 export class CoverPhotoUploadComponent {
   @Input() currentCover?: string;
   @Output() coverSelected = new EventEmitter<File>();
+  @Output() uploadError = new EventEmitter<string>();
   
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
@@ -31,7 +32,7 @@ export class CoverPhotoUploadComponent {
       if (this.isValidImageType(file)) {
         this.coverSelected.emit(file);
       } else {
-        alert('Please select a valid image file (JPG, PNG, or WEBP)');
+        this.uploadError.emit('Please select a valid image file (JPG, PNG, or WEBP)');
       }
     }
   }

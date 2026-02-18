@@ -13,6 +13,10 @@ import { TranslationService } from '../../../../core/services/translation.servic
 export class InterestSelectorComponent {
   @Input() selectedInterests: string[] = [];
   @Output() interestsChanged = new EventEmitter<string[]>();
+  @Output() interestError = new EventEmitter<string>();
+
+  showCustomInput = false;
+  customInterestValue = '';
 
   get interests(): string[] {
     return [
@@ -47,7 +51,7 @@ export class InterestSelectorComponent {
       if (this.selectedInterests.length < 10) {
         updatedInterests = [...this.selectedInterests, interest];
       } else {
-        alert('Maximum 10 interests allowed');
+        this.interestError.emit('Maximum 10 interests allowed');
         return;
       }
     }
@@ -56,6 +60,8 @@ export class InterestSelectorComponent {
   }
 
   openAddDialog(): void {
+    // For now, still using prompt, but emit error instead of alert
+    // TODO: Replace with proper modal dialog component
     const customInterest = prompt('Enter your custom interest:');
     if (customInterest && customInterest.trim()) {
       const trimmedInterest = customInterest.trim();
@@ -64,7 +70,7 @@ export class InterestSelectorComponent {
           const updatedInterests = [...this.selectedInterests, trimmedInterest];
           this.interestsChanged.emit(updatedInterests);
         } else {
-          alert('Maximum 10 interests allowed');
+          this.interestError.emit('Maximum 10 interests allowed');
         }
       }
     }

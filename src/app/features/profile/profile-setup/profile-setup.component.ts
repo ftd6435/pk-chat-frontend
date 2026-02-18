@@ -90,9 +90,15 @@ export class ProfileSetupComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           console.error('Failed to upload profile photo', error);
-          alert('Failed to upload profile photo. Please try again.');
+          // TODO: Replace with toast notification service
+          this.handleError('Failed to upload profile photo. Please try again.');
         }
       });
+  }
+
+  onProfilePhotoError(errorMessage: string): void {
+    // TODO: Replace with toast notification service
+    this.handleError(errorMessage);
   }
 
   onCoverPhotoSelected(file: File): void {
@@ -106,9 +112,28 @@ export class ProfileSetupComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           console.error('Failed to upload cover photo', error);
-          alert('Failed to upload cover photo. Please try again.');
+          // TODO: Replace with toast notification service
+          this.handleError('Failed to upload cover photo. Please try again.');
         }
       });
+  }
+
+  onCoverPhotoError(errorMessage: string): void {
+    // TODO: Replace with toast notification service
+    this.handleError(errorMessage);
+  }
+
+  onInterestError(errorMessage: string): void {
+    // TODO: Replace with toast notification service
+    this.handleError(errorMessage);
+  }
+
+  private handleError(message: string): void {
+    // Temporary error handling - log to console
+    // TODO: Implement toast notification service
+    console.error('Profile Setup Error:', message);
+    // For now, still use alert but centralized
+    alert(message);
   }
 
   onPersonalDetailsChanged(details: Partial<ProfileSetup>): void {
@@ -135,7 +160,8 @@ export class ProfileSetupComponent implements OnInit, OnDestroy {
                     this.profileData.interests.length > 0;
 
     if (!hasData) {
-      alert('Please fill in at least some information before completing your profile.');
+      // TODO: Replace with toast notification service
+      this.handleError('Please fill in at least some information before completing your profile.');
       return;
     }
 
@@ -153,5 +179,12 @@ export class ProfileSetupComponent implements OnInit, OnDestroy {
 
   get stepDots(): boolean[] {
     return Array(this.totalSteps).fill(false).map((_, i) => i < this.currentStep);
+  }
+
+  get stepText(): string {
+    const template = this.translationService.translate('profileSetup.header.step');
+    return template
+      .replace('{{current}}', this.currentStep.toString())
+      .replace('{{total}}', this.totalSteps.toString());
   }
 }
