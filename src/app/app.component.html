@@ -1,10 +1,15 @@
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-<app-header *ngIf="showHeaderFooter"></app-header>
+<!-- Show landing header ONLY on public pages -->
+<app-header *ngIf="isPublicRoute()"></app-header>
 
-<main id="main-content" [class.main-content--auth]="!showHeaderFooter">
+<!-- Show dashboard header ONLY on authenticated pages -->
+<app-dashboard-header *ngIf="isAuthenticatedRoute()"></app-dashboard-header>
+
+<main id="main-content" [class.main-content--auth]="!isPublicRoute() && !isAuthenticatedRoute()">
   <router-outlet />
 </main>
 
-<app-footer *ngIf="showHeaderFooter"></app-footer>
+<!-- Show footer on pages that need it (not auth pages or private chat) -->
+<app-footer *ngIf="shouldShowFooter()"></app-footer>
 

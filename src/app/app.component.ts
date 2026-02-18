@@ -5,16 +5,17 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { DashboardHeaderComponent } from './features/dashboard/components/dashboard-header/dashboard-header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, DashboardHeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'PK-Chat';
-  showHeaderFooter = true;
+  currentRoute: string = '';
   private destroy$ = new Subject<void>();
 
   constructor(private router: Router) {
@@ -24,13 +25,13 @@ export class AppComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe((event: NavigationEnd) => {
-        this.checkRoute(event.urlAfterRedirects);
+        this.currentRoute = event.urlAfterRedirects;
       });
   }
 
   ngOnInit(): void {
-    // Check initial route
-    this.checkRoute(this.router.url);
+    // Set initial route
+    this.currentRoute = this.router.url;
   }
 
   ngOnDestroy(): void {
@@ -38,9 +39,24 @@ export class AppComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  private checkRoute(url: string): void {
-    // Hide header/footer on auth pages
-    const authRoutes = ['/inscription', '/connexion', '/signup', '/login', '/mot-de-passe-oublie'];
-    this.showHeaderFooter = !authRoutes.some(route => url.startsWith(route));
+  isPublicRoute(): boolean {
+    // Public pages: landing, login, signup (show landing header)
+    const publicRoutes = ['/', '/accueil', '/connexion', '/inscription', '/login', '/signup'];
+    return publicRoutes.some(route => this.currentRoute === route || (route === '/' && this.currentRoute === ''));
+  }
+
+  isAuthenticatedRoute(): boolean {
+    // Authenticated pages: dashboard, chat (show dashboard header)
+    const authenticatedRoutes = ['/tableau-de-bord', '/dashboard', '/discussion', '/chat'];
+    return authenticatedRoutes.some(route => this.currentRoute.startsWith(route));
+  }
+
+  shouldShowFooter(): boolean {
+    // Don't show footer on private chat pages (full-screen layout)
+    const noFooterRoutes = ['/discussion', '/chat'];
+    const hasNoFooter = noFooterRoutes.some(route => this.currentRoute.startsWith(route));
+    
+    // Show footer on public and dashboard pages, but not on auth pages or chat
+    return (this.isPublicRoute() || this.isAuthenticatedRoute()) && !hasNoFooter;
   }
 }
