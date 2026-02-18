@@ -395,5 +395,57 @@
       "title": "Amis en ligne ({{count}})",
       "viewAll": "Voir tous les amis en ligne"
     }
+  },
+  "profile": {
+    "title": "Mon Profil",
+    "actions": {
+      "edit": "Modifier le profil",
+      "settings": "Paramètres"
+    },
+    "stats": {
+      "friends": "Amis",
+      "communities": "Communautés",
+      "messages": "Messages"
+    },
+    "tabs": {
+      "overview": "Aperçu",
+      "activity": "Activité",
+      "friends": "Amis"
+    },
+    "about": {
+      "title": "À propos",
+      "fullBio": "Bio complète",
+      "website": "Site web",
+      "birthday": "Anniversaire",
+      "interests": "Centres d'intérêt"
+    },
+    "activity": {
+      "title": "Activité récente",
+      "newConversation": "Nouvelle conversation avec {{name}}",
+      "joinedCommunity": "Rejoint la communauté \"{{name}}\"",
+      "newConnection": "Nouvelle connexion avec {{name}}"
+    },
+    "meta": {
+      "location": "{{city}}, {{country}}",
+      "memberSince": "Membre depuis {{date}}"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "viewPublic": "Voir le profil public",
+      "editProfile": "Modifier le profil",
+      "accountSettings": "Paramètres du compte",
+      "privacy": "Paramètres de confidentialité"
+    },
+    "security": {
+      "title": "Sécurité du compte",
+      "password": "Mot de passe",
+      "passwordChanged": "Modifié le {{date}}",
+      "change": "Changer",
+      "twoFactor": "Authentification 2FA",
+      "enabled": "Activée",
+      "disabled": "Désactivée",
+      "manage": "Gérer",
+      "settings": "Paramètres de sécurité"
+    }
   }
 }

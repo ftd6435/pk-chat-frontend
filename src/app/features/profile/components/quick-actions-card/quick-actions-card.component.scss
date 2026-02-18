@@ -1,0 +1,59 @@
+@import '../../../../../styles/variables';
+
+.quick-actions-card {
+  background: white;
+  box-shadow: $shadow-moderate;
+  padding: $spacing-comfortable;
+  border-radius: $radius-large;
+  margin-bottom: $spacing-comfortable;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 $spacing-standard 0;
+}
+
+.actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-compact;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: $spacing-compact;
+  padding: $spacing-compact;
+  background: transparent;
+  border: none;
+  color: $primary-base;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  border-radius: $spacing-compact;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  iconify-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: $bg-container-secondary;
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-mobile) {
+  .quick-actions-card {
+    padding: $spacing-standard;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}

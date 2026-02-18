@@ -395,5 +395,57 @@
       "title": "Online Friends ({{count}})",
       "viewAll": "View all online friends"
     }
+  },
+  "profile": {
+    "title": "My Profile",
+    "actions": {
+      "edit": "Edit Profile",
+      "settings": "Settings"
+    },
+    "stats": {
+      "friends": "Friends",
+      "communities": "Communities",
+      "messages": "Messages"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "activity": "Activity",
+      "friends": "Friends"
+    },
+    "about": {
+      "title": "About",
+      "fullBio": "Full Bio",
+      "website": "Website",
+      "birthday": "Birthday",
+      "interests": "Interests"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "newConversation": "New conversation with {{name}}",
+      "joinedCommunity": "Joined community \"{{name}}\"",
+      "newConnection": "New connection with {{name}}"
+    },
+    "meta": {
+      "location": "{{city}}, {{country}}",
+      "memberSince": "Member since {{date}}"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "viewPublic": "View Public Profile",
+      "editProfile": "Edit Profile",
+      "accountSettings": "Account Settings",
+      "privacy": "Privacy Settings"
+    },
+    "security": {
+      "title": "Account Security",
+      "password": "Password",
+      "passwordChanged": "Changed on {{date}}",
+      "change": "Change",
+      "twoFactor": "Two-Factor Authentication",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "manage": "Manage",
+      "settings": "Security Settings"
+    }
   }
 }

@@ -1,0 +1,38 @@
+<div class="account-security-card">
+  <h3>{{ translationService.translate('profile.security.title') }}</h3>
+  
+  <div class="security-items">
+    
+    <!-- Password -->
+    <div class="security-item">
+      <div class="security-info">
+        <div class="label">{{ translationService.translate('profile.security.password') }}</div>
+        <div class="meta">{{ getPasswordChangeDate() }}</div>
+      </div>
+      <button class="change-btn">
+        {{ translationService.translate('profile.security.change') }}
+      </button>
+    </div>
+    
+    <!-- 2FA -->
+    <div class="security-item">
+      <div class="security-info">
+        <div class="label">{{ translationService.translate('profile.security.twoFactor') }}</div>
+        <div class="status-indicator">
+          <div class="status-dot" [class.active]="is2FAEnabled"></div>
+          <span>{{ get2FAStatus() }}</span>
+        </div>
+      </div>
+      <button class="change-btn">
+        {{ translationService.translate('profile.security.manage') }}
+      </button>
+    </div>
+    
+    <!-- Security Settings Link -->
+    <button class="security-settings-link">
+      <iconify-icon icon="lucide:shield"></iconify-icon>
+      <span>{{ translationService.translate('profile.security.settings') }}</span>
+    </button>
+    
+  </div>
+</div>

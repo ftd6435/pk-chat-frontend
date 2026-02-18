@@ -1,0 +1,22 @@
+<div class="activity-feed">
+  <h3>{{ translationService.translate('profile.activity.title') }}</h3>
+  
+  <div class="activities">
+    
+    <div 
+      *ngFor="let activity of activities; trackBy: trackById"
+      class="activity-item">
+      
+      <div class="activity-icon">
+        <iconify-icon [icon]="activity.icon"></iconify-icon>
+      </div>
+      
+      <div class="activity-content">
+        <div class="activity-text">{{ activity.text }}</div>
+        <div class="activity-time">{{ activity.timestamp }}</div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>

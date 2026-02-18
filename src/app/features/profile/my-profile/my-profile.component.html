@@ -1,0 +1,72 @@
+<div class="my-profile-page">
+  <!-- Dashboard Header -->
+  <app-dashboard-header></app-dashboard-header>
+
+  <!-- Main Layout -->
+  <div class="profile-layout">
+    
+    <!-- Left Sidebar -->
+    <app-dashboard-sidebar [activeItem]="'profile'"></app-dashboard-sidebar>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+      
+      <!-- Profile Header (Cover + Avatar + Actions) -->
+      <app-profile-header 
+        *ngIf="profile"
+        [profile]="profile"
+        (editProfile)="editProfile()"
+        (openSettings)="openSettings()">
+      </app-profile-header>
+
+      <!-- Profile Stats -->
+      <app-profile-stats 
+        *ngIf="stats"
+        [stats]="stats">
+      </app-profile-stats>
+
+      <!-- Profile Tabs -->
+      <app-profile-tabs
+        [activeTab]="activeTab"
+        (tabChanged)="onTabChange($event)">
+      </app-profile-tabs>
+
+      <!-- Tab Content -->
+      <div class="tab-content" *ngIf="activeTab === 'overview'">
+        
+        <div class="content-left">
+          <!-- About Section -->
+          <app-profile-about 
+            *ngIf="profile"
+            [profile]="profile">
+          </app-profile-about>
+
+          <!-- Activity Feed -->
+          <app-activity-feed 
+            [activities]="activities">
+          </app-activity-feed>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="profile-sidebar">
+      
+      <!-- Quick Actions -->
+      <app-quick-actions-card
+        (actionClick)="handleQuickAction($event)">
+      </app-quick-actions-card>
+
+      <!-- Account Security -->
+      <app-account-security-card
+        *ngIf="accountSecurity"
+        [passwordLastChanged]="accountSecurity.passwordLastChanged"
+        [is2FAEnabled]="accountSecurity.twoFactorEnabled">
+      </app-account-security-card>
+
+    </aside>
+
+  </div>
+</div>

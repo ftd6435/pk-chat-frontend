@@ -1,0 +1,60 @@
+<div class="profile-header-card">
+  <!-- Cover Photo -->
+  <div class="cover-photo">
+    <img 
+      [src]="profile.coverPhoto" 
+      alt="Cover photo"
+      class="cover-image">
+    
+    <!-- Gradient overlay -->
+    <div class="cover-gradient"></div>
+  </div>
+  
+  <!-- Profile Content -->
+  <div class="profile-content">
+    
+    <!-- Avatar + Action Buttons Row -->
+    <div class="header-row">
+      
+      <!-- Avatar -->
+      <div class="avatar-container">
+        <img 
+          [src]="profile.avatar" 
+          [alt]="profile.name"
+          class="avatar">
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="edit-profile-btn" (click)="onEditProfile()">
+          <iconify-icon icon="lucide:edit"></iconify-icon>
+          <span>{{ translationService.translate('profile.actions.edit') }}</span>
+        </button>
+        
+        <button class="settings-btn" (click)="onOpenSettings()">
+          <iconify-icon icon="lucide:settings"></iconify-icon>
+          <span>{{ translationService.translate('profile.actions.settings') }}</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Profile Info -->
+    <div class="profile-info">
+      <h1>{{ profile.name }}</h1>
+      
+      <p class="bio">{{ profile.bio }}</p>
+      
+      <div class="meta-info">
+        <div class="meta-item">
+          <iconify-icon icon="lucide:map-pin"></iconify-icon>
+          <span>{{ profile.location }}</span>
+        </div>
+        
+        <div class="meta-item">
+          <iconify-icon icon="lucide:calendar"></iconify-icon>
+          <span>{{ getMemberSinceText() }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
