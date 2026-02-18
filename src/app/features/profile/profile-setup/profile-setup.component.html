@@ -1,0 +1,80 @@
+<div class="profile-setup-page">
+  <!-- Header -->
+  <header class="profile-setup-header">
+    <div class="header-left">
+      <iconify-icon icon="lucide:message-circle" class="brand-icon"></iconify-icon>
+      <span class="brand-name">{{ translationService.translate('header.brand') }}</span>
+    </div>
+    
+    <div class="header-right">
+      <div class="progress-indicator">
+        <div class="step-dots">
+          <span 
+            *ngFor="let filled of stepDots; let i = index" 
+            class="step-dot" 
+            [class.filled]="filled"
+          ></span>
+        </div>
+        <span class="step-text">{{ stepText }}</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="profile-setup-main">
+    <div class="content-container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>{{ translationService.translate('profileSetup.title') }}</h1>
+        <p class="subtitle">{{ translationService.translate('profileSetup.subtitle') }}</p>
+      </div>
+
+      <!-- Profile Photo Section -->
+      <section class="profile-photo-section">
+        <app-profile-photo-upload
+          [currentPhoto]="profilePhotoPreview"
+          (photoSelected)="onProfilePhotoSelected($event)"
+          (uploadError)="onProfilePhotoError($event)"
+        ></app-profile-photo-upload>
+      </section>
+
+      <!-- Cover Photo Section -->
+      <section class="cover-photo-section">
+        <app-cover-photo-upload
+          [currentCover]="coverPhotoPreview"
+          (coverSelected)="onCoverPhotoSelected($event)"
+          (uploadError)="onCoverPhotoError($event)"
+        ></app-cover-photo-upload>
+      </section>
+
+      <!-- Personal Details Section -->
+      <section class="personal-details-section">
+        <app-personal-details-form
+          [profileData]="profileData"
+          (dataChanged)="onPersonalDetailsChanged($event)"
+        ></app-personal-details-form>
+      </section>
+
+      <!-- Interests Section -->
+      <section class="interests-section">
+        <app-interest-selector
+          [selectedInterests]="profileData.interests"
+          (interestsChanged)="onInterestsChanged($event)"
+          (interestError)="onInterestError($event)"
+        ></app-interest-selector>
+      </section>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button type="button" class="skip-button" (click)="skipForNow()">
+          {{ translationService.translate('profileSetup.actions.skip') }}
+        </button>
+        
+        <button type="button" class="complete-button" (click)="completeProfile()">
+          <span>{{ translationService.translate('profileSetup.actions.complete') }}</span>
+          <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </main>
+</div>

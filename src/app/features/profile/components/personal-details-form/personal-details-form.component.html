@@ -1,0 +1,104 @@
+<div class="personal-details-form">
+  <h3 class="section-title">{{ translationService.translate('profileSetup.personalDetails.title') }}</h3>
+  
+  <form [formGroup]="detailsForm" class="form-container">
+    <!-- About -->
+    <div class="form-field">
+      <label for="about">{{ translationService.translate('profileSetup.personalDetails.about.label') }}</label>
+      <div class="textarea-container">
+        <textarea
+          id="about"
+          formControlName="about"
+          [placeholder]="translationService.translate('profileSetup.personalDetails.about.placeholder')"
+          [maxlength]="maxAboutLength"
+          rows="5"
+        ></textarea>
+        <span class="char-counter">{{ aboutCharCount }}/{{ maxAboutLength }}</span>
+      </div>
+    </div>
+
+    <!-- Grid Fields -->
+    <div class="form-grid">
+      <!-- Location -->
+      <div class="form-field">
+        <label for="location">{{ translationService.translate('profileSetup.personalDetails.location.label') }}</label>
+        <div class="input-wrapper">
+          <iconify-icon icon="lucide:map-pin"></iconify-icon>
+          <input
+            id="location"
+            type="text"
+            formControlName="location"
+            [placeholder]="translationService.translate('profileSetup.personalDetails.location.placeholder')"
+          />
+        </div>
+      </div>
+
+      <!-- Website -->
+      <div class="form-field">
+        <label for="website">{{ translationService.translate('profileSetup.personalDetails.website.label') }}</label>
+        <div class="input-wrapper" [class.has-error]="websiteControl?.invalid && websiteControl?.touched">
+          <iconify-icon icon="lucide:globe"></iconify-icon>
+          <input
+            id="website"
+            type="url"
+            formControlName="website"
+            [placeholder]="translationService.translate('profileSetup.personalDetails.website.placeholder')"
+          />
+        </div>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-field">
+        <label for="dateOfBirth">{{ translationService.translate('profileSetup.personalDetails.dateOfBirth.label') }}</label>
+        <div class="input-wrapper">
+          <iconify-icon icon="lucide:calendar"></iconify-icon>
+          <input
+            id="dateOfBirth"
+            type="date"
+            formControlName="dateOfBirth"
+          />
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-field">
+        <label for="gender">{{ translationService.translate('profileSetup.personalDetails.gender.label') }}</label>
+        <div class="input-wrapper select-wrapper">
+          <iconify-icon icon="lucide:user"></iconify-icon>
+          <select id="gender" formControlName="gender">
+            <option value="">{{ translationService.translate('profileSetup.personalDetails.gender.placeholder') }}</option>
+            <option value="homme">{{ translationService.translate('profileSetup.personalDetails.gender.options.homme') }}</option>
+            <option value="femme">{{ translationService.translate('profileSetup.personalDetails.gender.options.femme') }}</option>
+            <option value="autre">{{ translationService.translate('profileSetup.personalDetails.gender.options.autre') }}</option>
+            <option value="non-specifie">{{ translationService.translate('profileSetup.personalDetails.gender.options.notSpecified') }}</option>
+          </select>
+          <iconify-icon icon="lucide:chevron-down" class="chevron-icon"></iconify-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="form-field">
+      <label>{{ translationService.translate('profileSetup.personalDetails.socialLinks.label') }}</label>
+      <div class="social-links">
+        <div class="input-wrapper" [class.has-error]="linkedinControl?.invalid && linkedinControl?.touched">
+          <iconify-icon icon="lucide:linkedin"></iconify-icon>
+          <input
+            type="url"
+            formControlName="linkedinUrl"
+            [placeholder]="translationService.translate('profileSetup.personalDetails.socialLinks.linkedin')"
+          />
+        </div>
+
+        <div class="input-wrapper" [class.has-error]="twitterControl?.invalid && twitterControl?.touched">
+          <iconify-icon icon="lucide:twitter"></iconify-icon>
+          <input
+            type="url"
+            formControlName="twitterUrl"
+            [placeholder]="translationService.translate('profileSetup.personalDetails.socialLinks.twitter')"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

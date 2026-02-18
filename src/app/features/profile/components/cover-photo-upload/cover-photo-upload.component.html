@@ -1,0 +1,30 @@
+<div class="cover-photo-upload">
+  <h3 class="section-title">{{ translationService.translate('profileSetup.coverPhoto.title') }}</h3>
+  
+  <div class="upload-container">
+    <div class="cover-preview-wrapper">
+      <div class="cover-preview" [class.has-cover]="currentCover">
+        <img *ngIf="currentCover" [src]="currentCover" alt="Cover photo preview" />
+        <iconify-icon *ngIf="!currentCover" icon="lucide:image" class="placeholder-icon"></iconify-icon>
+      </div>
+      <button type="button" class="camera-button" (click)="triggerFileSelect()" [attr.aria-label]="translationService.translate('profileSetup.coverPhoto.uploadButton')">
+        <iconify-icon icon="lucide:camera"></iconify-icon>
+      </button>
+    </div>
+    
+    <input 
+      #fileInput 
+      type="file" 
+      accept="image/jpeg,image/png,image/webp" 
+      (change)="onFileSelected($event)"
+      class="hidden"
+    />
+    
+    <button type="button" class="upload-button" (click)="triggerFileSelect()">
+      <iconify-icon icon="lucide:upload"></iconify-icon>
+      <span>{{ translationService.translate('profileSetup.coverPhoto.uploadButton') }}</span>
+    </button>
+    
+    <p class="help-text">{{ translationService.translate('profileSetup.coverPhoto.helpText') }}</p>
+  </div>
+</div>

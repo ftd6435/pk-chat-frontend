@@ -25,7 +25,16 @@ export const routes: Routes = [
     loadComponent: () => import('./features/chat/private-chat/private-chat.component').then(m => m.PrivateChatComponent),
     title: 'Discussion - PK-Chat'
   },
+  {
+    path: 'configuration-profil',
+    loadComponent: () => import('./features/profile/profile-setup/profile-setup.component').then(m => m.ProfileSetupComponent),
+    title: 'Configuration du profil - PK-Chat'
+  },
   // Also support English routes
+  {
+    path: 'profile-setup',
+    redirectTo: 'configuration-profil'
+  },
   {
     path: 'signup',
     redirectTo: 'inscription'
