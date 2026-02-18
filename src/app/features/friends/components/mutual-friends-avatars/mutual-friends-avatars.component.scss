@@ -1,0 +1,25 @@
+@import '../../../../../styles/variables';
+
+.mutual-avatars {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mutual-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  border: 1px solid white;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  
+  &:not(:first-child) {
+    margin-left: -4px;
+  }
+  
+  &:hover {
+    z-index: 2;
+  }
+}

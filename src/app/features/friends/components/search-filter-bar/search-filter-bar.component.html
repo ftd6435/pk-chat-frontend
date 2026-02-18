@@ -1,0 +1,59 @@
+<div class="search-filter-bar">
+  
+  <!-- Search Row -->
+  <div class="search-row">
+    
+    <!-- Search Input -->
+    <div class="search-input">
+      <iconify-icon icon="lucide:search"></iconify-icon>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="onSearchSubmit()"
+        [placeholder]="translationService.translate('findFriends.search.placeholder')">
+    </div>
+    
+    <!-- Search Button -->
+    <button 
+      class="search-btn"
+      (click)="onSearchSubmit()">
+      <span>{{ translationService.translate('findFriends.search.button') }}</span>
+    </button>
+    
+  </div>
+  
+  <!-- Advanced Filters Row -->
+  <div class="filters-row">
+    
+    <span class="filters-label">{{ translationService.translate('findFriends.filters.label') }}</span>
+    
+    <!-- Location Filter -->
+    <button 
+      class="filter-btn"
+      [class.active]="isFilterActive('location')"
+      (click)="toggleFilter('location')">
+      <iconify-icon icon="lucide:map-pin"></iconify-icon>
+      <span>{{ translationService.translate('findFriends.filters.location') }}</span>
+    </button>
+    
+    <!-- Mutual Friends Filter -->
+    <button 
+      class="filter-btn"
+      [class.active]="isFilterActive('mutualFriends')"
+      (click)="toggleFilter('mutualFriends')">
+      <iconify-icon icon="lucide:users"></iconify-icon>
+      <span>{{ translationService.translate('findFriends.filters.mutualFriends') }}</span>
+    </button>
+    
+    <!-- Interests Filter -->
+    <button 
+      class="filter-btn"
+      [class.active]="isFilterActive('interests')"
+      (click)="toggleFilter('interests')">
+      <iconify-icon icon="lucide:heart"></iconify-icon>
+      <span>{{ translationService.translate('findFriends.filters.interests') }}</span>
+    </button>
+    
+  </div>
+  
+</div>

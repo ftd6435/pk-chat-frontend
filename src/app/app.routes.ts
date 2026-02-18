@@ -31,6 +31,11 @@ export const routes: Routes = [
     title: 'Amis - PK-Chat'
   },
   {
+    path: 'decouvrir-amis',
+    loadComponent: () => import('./features/friends/find-friends/find-friends.component').then(m => m.FindFriendsComponent),
+    title: 'Découvrir des amis - PK-Chat'
+  },
+  {
     path: 'configuration-profil',
     loadComponent: () => import('./features/profile/profile-setup/profile-setup.component').then(m => m.ProfileSetupComponent),
     title: 'Configuration du profil - PK-Chat'
@@ -68,6 +73,10 @@ export const routes: Routes = [
   {
     path: 'friends',
     redirectTo: 'amis'
+  },
+  {
+    path: 'find-friends',
+    redirectTo: 'decouvrir-amis'
   },
   {
     path: '**',

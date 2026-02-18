@@ -1,0 +1,130 @@
+@import '../../../../../styles/variables';
+
+.suggested-friend-card {
+  background: $bg-container-primary;
+  box-shadow: $shadow-moderate;
+  padding: $spacing-comfortable;
+  border-radius: $radius-large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-standard;
+  transition: all 200ms ease;
+  
+  &:hover {
+    box-shadow: $shadow-pronounced;
+    transform: translateY(-2px);
+  }
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.friend-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-tight;
+  width: 100%;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+}
+
+.mutual-friends {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-tight;
+}
+
+.mutual-count {
+  font-size: 14px;
+  color: $text-secondary;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.interest-tag {
+  background: hsla(35, 20%, 97%, 1);
+  color: $text-secondary;
+  padding: 4px $spacing-tight;
+  border-radius: $radius-small;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.action-buttons {
+  display: flex;
+  gap: $spacing-tight;
+  width: 100%;
+}
+
+.invite-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-tight;
+  background: $primary-base;
+  color: rgba(255, 255, 255, 0.95);
+  padding: $spacing-tight $spacing-standard;
+  border-radius: $radius-small;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 200ms ease;
+  
+  iconify-icon {
+    font-size: 16px;
+  }
+  
+  &:hover {
+    background: $primary-lighter;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.view-profile-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid hsla(35, 10%, 88%, 1);
+  border-radius: $radius-small;
+  cursor: pointer;
+  transition: all 200ms ease;
+  
+  iconify-icon {
+    font-size: 16px;
+    color: $text-secondary;
+  }
+  
+  &:hover {
+    background: hsla(35, 20%, 97%, 1);
+    
+    iconify-icon {
+      color: $text-primary;
+    }
+  }
+}

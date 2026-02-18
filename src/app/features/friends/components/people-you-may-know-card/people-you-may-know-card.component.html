@@ -1,0 +1,30 @@
+<div class="person-card">
+  
+  <!-- Avatar -->
+  <img 
+    [src]="person.avatar" 
+    [alt]="person.name"
+    class="avatar">
+  
+  <!-- Person Info (centered) -->
+  <div class="person-info">
+    <h4>{{ person.name }}</h4>
+    <p class="context">{{ person.context }}</p>
+  </div>
+  
+  <!-- Action Button -->
+  <button 
+    *ngIf="person.inviteStatus === 'none'"
+    class="invite-btn"
+    (click)="onInviteClick()">
+    <span>{{ translationService.translate('findFriends.actions.invite') }}</span>
+  </button>
+  
+  <button 
+    *ngIf="person.inviteStatus === 'pending'"
+    class="invite-sent-btn"
+    disabled>
+    <span>{{ translationService.translate('findFriends.actions.inviteSent') }}</span>
+  </button>
+  
+</div>
