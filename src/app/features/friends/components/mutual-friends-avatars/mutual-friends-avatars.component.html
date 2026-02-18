@@ -1,8 +1,7 @@
 <div class="mutual-avatars">
   <img 
-    *ngFor="let friend of displayedFriends; let i = index"
+    *ngFor="let friend of displayedFriends"
     [src]="friend.avatar"
     [alt]="friend.name"
-    [style.margin-left]="i === 0 ? '0' : '-4px'"
     class="mutual-avatar">
 </div>

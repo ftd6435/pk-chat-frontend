@@ -124,7 +124,8 @@
     background: $primary-base;
     color: rgba(255, 255, 255, 0.95);
     border: 2px solid $primary-lighter;
-    padding: 6px 10px; // Adjust for border
+    // Adjust padding to compensate for border (8px - 2px = 6px, 12px - 2px = 10px)
+    padding: calc($spacing-tight - 2px) calc($spacing-compact - 2px);
     
     &:hover {
       background: $primary-lighter;
