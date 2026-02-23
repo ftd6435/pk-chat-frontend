@@ -1,0 +1,247 @@
+@import '../../../../styles/variables';
+
+.friend-requests-page {
+  display: flex;
+  min-height: 100vh;
+  background: $bg-page;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 256px;
+  padding: $spacing-relaxed;
+
+  @media (max-width: $breakpoint-tablet) {
+    margin-left: 0;
+    padding: $spacing-standard;
+  }
+}
+
+// Page Header
+.page-header-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-standard;
+  margin-bottom: $spacing-comfortable;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: $spacing-tight;
+  font-size: 14px;
+  color: $text-secondary;
+
+  .chevron-icon {
+    font-size: 12px;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: $text-secondary;
+  margin: 0;
+}
+
+// Tab bar
+.tabs-bar {
+  display: flex;
+  gap: $spacing-tight;
+  margin-bottom: $spacing-comfortable;
+  border-bottom: 1px solid rgba(26, 43, 74, 0.1);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-tight;
+  padding: $spacing-compact $spacing-comfortable;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+
+  &:hover {
+    color: $primary-base;
+  }
+
+  &.active {
+    color: $primary-base;
+    border-bottom-color: $primary-base;
+    font-weight: 600;
+  }
+}
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: $accent-gold;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+// Requests grid
+.requests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-comfortable;
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Request card
+.request-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-standard;
+  padding: $spacing-comfortable;
+  background: rgba(255, 255, 255, 1);
+  border-radius: $radius-large;
+  box-shadow: $shadow-moderate;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: $shadow-pronounced;
+  }
+}
+
+// Avatar
+.avatar-wrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  box-shadow: $shadow-subtle;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: $status-offline;
+
+  &.online {
+    background: $status-online;
+  }
+}
+
+// User info
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  width: 100%;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+}
+
+.mutual-friends {
+  display: flex;
+  align-items: center;
+  gap: $spacing-tight;
+}
+
+.mutual-avatars {
+  display: flex;
+
+  .mutual-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+    margin-left: -6px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.mutual-count {
+  font-size: 13px;
+  color: $text-secondary;
+}
+
+.time-ago {
+  font-size: 13px;
+  color: $text-tertiary;
+}
+
+// Action buttons
+.card-actions {
+  display: flex;
+  gap: $spacing-tight;
+  width: 100%;
+
+  button {
+    flex: 1;
+    padding: 10px $spacing-standard;
+    border-radius: $radius-small;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+}
+
+.btn-accept {
+  background: rgba(26, 43, 74, 1);
+  color: #fff;
+
+  &:hover {
+    background: $primary-lighter;
+    box-shadow: $shadow-subtle;
+  }
+}
+
+.btn-decline {
+  background: rgba(0, 0, 0, 0.06);
+  color: $text-primary;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
