@@ -1,0 +1,225 @@
+<div class="create-community-page">
+  <!-- Dashboard Header -->
+  <app-dashboard-header></app-dashboard-header>
+
+  <!-- Layout -->
+  <div class="layout-container">
+    <!-- Left Sidebar -->
+    <app-dashboard-sidebar [activeItem]="'communities'"></app-dashboard-sidebar>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a routerLink="/communautes">{{ translationService.translate('communities.title') }}</a>
+        <iconify-icon icon="lucide:chevron-right" class="chevron"></iconify-icon>
+        <span>{{ translationService.translate('communities.create.title') }}</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>{{ translationService.translate('communities.create.title') }}</h1>
+        <p class="subtitle">{{ translationService.translate('communities.create.subtitle') }}</p>
+      </div>
+
+      <!-- Step Indicator -->
+      <div class="step-indicator" role="progressbar" [attr.aria-valuenow]="currentStep" [attr.aria-valuemax]="totalSteps">
+        <div class="step-item" [class.active]="currentStep === 1" [class.completed]="currentStep > 1">
+          <div class="step-number">
+            <iconify-icon *ngIf="currentStep > 1" icon="lucide:check"></iconify-icon>
+            <span *ngIf="currentStep <= 1">1</span>
+          </div>
+          <div class="step-info">
+            <span class="step-label">{{ translationService.translate('communities.create.steps.step1.label') }}</span>
+            <span class="step-desc">{{ translationService.translate('communities.create.steps.step1.desc') }}</span>
+          </div>
+          <div class="step-connector" [class.done]="currentStep > 1"></div>
+        </div>
+        <div class="step-item" [class.active]="currentStep === 2" [class.completed]="currentStep > 2">
+          <div class="step-number">
+            <span>2</span>
+          </div>
+          <div class="step-info">
+            <span class="step-label">{{ translationService.translate('communities.create.steps.step2.label') }}</span>
+            <span class="step-desc">{{ translationService.translate('communities.create.steps.step2.desc') }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="communityForm" (ngSubmit)="onSubmit()" class="create-form" novalidate>
+
+        <!-- Step 1: Community Details -->
+        <div class="form-step" *ngIf="currentStep === 1">
+
+          <!-- Icon Upload -->
+          <div class="form-section">
+            <label class="section-label">{{ translationService.translate('communities.create.fields.icon.label') }}</label>
+            <div class="icon-upload-area" [class.has-preview]="iconPreview">
+              <ng-container *ngIf="!iconPreview">
+                <label for="icon-upload" class="upload-label" [attr.aria-label]="translationService.translate('communities.create.fields.icon.upload')">
+                  <iconify-icon icon="lucide:image-plus"></iconify-icon>
+                  <span>{{ translationService.translate('communities.create.fields.icon.upload') }}</span>
+                  <input id="icon-upload" type="file" accept="image/*" (change)="onIconFileSelected($event)" class="file-input" />
+                </label>
+              </ng-container>
+              <ng-container *ngIf="iconPreview">
+                <img [src]="iconPreview" alt="Community icon preview" class="icon-preview" />
+                <button type="button" class="remove-icon-btn" (click)="removeIcon()" [attr.aria-label]="translationService.translate('communities.create.fields.icon.remove')">
+                  <iconify-icon icon="lucide:x"></iconify-icon>
+                </button>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- Community Name -->
+          <div class="form-section">
+            <label for="community-name" class="section-label">
+              {{ translationService.translate('communities.create.fields.name.label') }}
+              <span class="required" aria-hidden="true">*</span>
+            </label>
+            <input
+              id="community-name"
+              type="text"
+              formControlName="name"
+              class="form-input"
+              [class.invalid]="isFieldInvalid('name')"
+              [placeholder]="translationService.translate('communities.create.fields.name.placeholder')"
+              [attr.aria-required]="true" />
+            <span class="error-msg" *ngIf="isFieldInvalid('name')" role="alert">
+              {{ translationService.translate('communities.create.fields.name.error') }}
+            </span>
+          </div>
+
+          <!-- Community Description -->
+          <div class="form-section">
+            <label for="community-desc" class="section-label">
+              {{ translationService.translate('communities.create.fields.description.label') }}
+              <span class="required" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="community-desc"
+              formControlName="description"
+              class="form-textarea"
+              [class.invalid]="isFieldInvalid('description')"
+              rows="4"
+              [placeholder]="translationService.translate('communities.create.fields.description.placeholder')"
+              [attr.aria-required]="true">
+            </textarea>
+            <span class="error-msg" *ngIf="isFieldInvalid('description')" role="alert">
+              {{ translationService.translate('communities.create.fields.description.error') }}
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Step 2: Group Configuration -->
+        <div class="form-step" *ngIf="currentStep === 2">
+
+          <!-- Community Type -->
+          <div class="form-section">
+            <label class="section-label">
+              {{ translationService.translate('communities.create.fields.type.label') }}
+              <span class="required" aria-hidden="true">*</span>
+            </label>
+            <div class="type-options" role="radiogroup">
+              <label
+                *ngFor="let typeOpt of communityTypes"
+                class="type-option"
+                [class.selected]="communityForm.get('type')?.value === typeOpt.value">
+                <input type="radio" formControlName="type" [value]="typeOpt.value" class="sr-only" />
+                <iconify-icon [icon]="typeOpt.icon" class="type-icon"></iconify-icon>
+                <div class="type-text">
+                  <span class="type-label">{{ translationService.translate(typeOpt.labelKey) }}</span>
+                  <span class="type-desc">{{ translationService.translate(typeOpt.descKey) }}</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div class="form-section">
+            <label for="community-category" class="section-label">
+              {{ translationService.translate('communities.create.fields.category.label') }}
+              <span class="required" aria-hidden="true">*</span>
+            </label>
+            <select
+              id="community-category"
+              formControlName="category"
+              class="form-select"
+              [class.invalid]="isFieldInvalid('category')"
+              [attr.aria-required]="true">
+              <option value="" disabled>{{ translationService.translate('communities.create.fields.category.placeholder') }}</option>
+              <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+            <span class="error-msg" *ngIf="isFieldInvalid('category')" role="alert">
+              {{ translationService.translate('communities.create.fields.category.error') }}
+            </span>
+          </div>
+
+          <!-- Tags -->
+          <div class="form-section">
+            <label class="section-label">{{ translationService.translate('communities.create.fields.tags.label') }}</label>
+            <div class="tags-input-wrapper">
+              <div class="tags-list">
+                <span *ngFor="let tag of tags" class="tag-chip">
+                  {{ tag }}
+                  <button type="button" (click)="removeTag(tag)" [attr.aria-label]="'Remove tag ' + tag" class="tag-remove">
+                    <iconify-icon icon="lucide:x"></iconify-icon>
+                  </button>
+                </span>
+              </div>
+              <input
+                type="text"
+                class="tag-input"
+                [(ngModel)]="tagInput"
+                [ngModelOptions]="{standalone: true}"
+                (keydown)="onTagKeydown($event)"
+                [placeholder]="translationService.translate('communities.create.fields.tags.placeholder')"
+                [attr.aria-label]="translationService.translate('communities.create.fields.tags.label')" />
+            </div>
+            <span class="hint-text">{{ translationService.translate('communities.create.fields.tags.hint') }}</span>
+          </div>
+
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" (click)="cancel()">
+            {{ translationService.translate('communities.create.actions.cancel') }}
+          </button>
+          <div class="nav-actions">
+            <button
+              *ngIf="currentStep > 1"
+              type="button"
+              class="btn-back"
+              (click)="previousStep()">
+              <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+              {{ translationService.translate('communities.create.actions.back') }}
+            </button>
+            <button
+              *ngIf="currentStep < totalSteps"
+              type="button"
+              class="btn-next"
+              [disabled]="!isStepValid()"
+              (click)="nextStep()">
+              {{ translationService.translate('communities.create.actions.next') }}
+              <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+            </button>
+            <button
+              *ngIf="currentStep === totalSteps"
+              type="submit"
+              class="btn-submit"
+              [disabled]="!communityForm.valid">
+              <iconify-icon icon="lucide:check"></iconify-icon>
+              {{ translationService.translate('communities.create.actions.submit') }}
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </main>
+  </div>
+</div>

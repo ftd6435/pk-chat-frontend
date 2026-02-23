@@ -1,0 +1,42 @@
+<div class="community-card">
+  <div class="card-header">
+    <div class="community-icon">
+      <iconify-icon [icon]="community.icon"></iconify-icon>
+    </div>
+    <span class="activity-indicator" [ngClass]="getActivityClass()"
+      [attr.aria-label]="translationService.translate('communities.card.activity.' + community.activityLevel)">
+    </span>
+  </div>
+
+  <div class="card-body">
+    <h3 class="community-name">{{ community.name }}</h3>
+    <p class="community-description">{{ community.description }}</p>
+
+    <div class="community-meta">
+      <span class="members-count">
+        <iconify-icon icon="lucide:users"></iconify-icon>
+        {{ getMembersText() }}
+      </span>
+      <span class="category-badge">{{ community.category }}</span>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button
+      *ngIf="!community.isJoined"
+      class="btn-join"
+      (click)="onJoinClick()"
+      [attr.aria-label]="translationService.translate('communities.card.join') + ' ' + community.name">
+      <iconify-icon icon="lucide:plus"></iconify-icon>
+      {{ translationService.translate('communities.card.join') }}
+    </button>
+    <button
+      *ngIf="community.isJoined"
+      class="btn-view"
+      (click)="onViewClick()"
+      [attr.aria-label]="translationService.translate('communities.card.view') + ' ' + community.name">
+      <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+      {{ translationService.translate('communities.card.view') }}
+    </button>
+  </div>
+</div>

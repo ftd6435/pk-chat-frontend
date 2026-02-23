@@ -508,5 +508,95 @@
       "manage": "Gérer",
       "settings": "Paramètres de sécurité"
     }
+  },
+  "communities": {
+    "title": "Mes Communautés",
+    "subtitle": "Rejoignez des communautés et partagez vos centres d'intérêt",
+    "createBtn": "Créer une Communauté",
+    "empty": "Aucune communauté trouvée",
+    "search": {
+      "placeholder": "Rechercher une communauté..."
+    },
+    "sort": {
+      "label": "Trier par",
+      "recent": "Récemment actif",
+      "members": "Nombre de membres",
+      "activity": "Activité",
+      "name": "Nom"
+    },
+    "card": {
+      "members": "{{count}} membres",
+      "join": "Rejoindre",
+      "view": "Voir",
+      "activity": {
+        "high": "Activité élevée",
+        "medium": "Activité moyenne",
+        "low": "Activité faible"
+      }
+    },
+    "create": {
+      "title": "Créer une nouvelle communauté",
+      "subtitle": "Configurez votre communauté et invitez vos membres",
+      "steps": {
+        "step1": {
+          "label": "Détails de la communauté",
+          "desc": "Nom, description, icône"
+        },
+        "step2": {
+          "label": "Configuration du groupe",
+          "desc": "Type, catégorie, tags"
+        }
+      },
+      "fields": {
+        "icon": {
+          "label": "Icône de la communauté",
+          "upload": "Ajouter une icône",
+          "remove": "Supprimer l'icône"
+        },
+        "name": {
+          "label": "Nom de la communauté",
+          "placeholder": "Ex: Développeurs Angular",
+          "error": "Le nom doit contenir entre 3 et 60 caractères"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Décrivez votre communauté...",
+          "error": "La description doit contenir entre 10 et 500 caractères"
+        },
+        "type": {
+          "label": "Type de communauté"
+        },
+        "category": {
+          "label": "Catégorie",
+          "placeholder": "Sélectionnez une catégorie",
+          "error": "Veuillez sélectionner une catégorie"
+        },
+        "tags": {
+          "label": "Tags",
+          "placeholder": "Ajouter un tag et appuyer sur Entrée",
+          "hint": "Appuyez sur Entrée pour ajouter un tag (max 10)"
+        }
+      },
+      "types": {
+        "public": {
+          "label": "Publique",
+          "desc": "Tout le monde peut voir et rejoindre cette communauté"
+        },
+        "private": {
+          "label": "Privée",
+          "desc": "Visible uniquement par les membres, sur invitation"
+        },
+        "secret": {
+          "label": "Secrète",
+          "desc": "Invisible dans les recherches, sur invitation uniquement"
+        }
+      },
+      "actions": {
+        "cancel": "Annuler",
+        "back": "Retour",
+        "next": "Suivant",
+        "submit": "Créer la communauté"
+      }
+    }
   }
 }

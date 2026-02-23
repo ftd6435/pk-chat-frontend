@@ -1,0 +1,68 @@
+<div class="communities-page">
+  <!-- Dashboard Header -->
+  <app-dashboard-header></app-dashboard-header>
+
+  <!-- Layout -->
+  <div class="layout-container">
+    <!-- Left Sidebar -->
+    <app-dashboard-sidebar [activeItem]="'communities'"></app-dashboard-sidebar>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="header-text">
+          <h1>{{ translationService.translate('communities.title') }}</h1>
+          <p class="subtitle">{{ translationService.translate('communities.subtitle') }}</p>
+        </div>
+        <a routerLink="/communautes/creer" class="btn-create" [attr.aria-label]="translationService.translate('communities.createBtn')">
+          <iconify-icon icon="lucide:plus"></iconify-icon>
+          {{ translationService.translate('communities.createBtn') }}
+        </a>
+      </div>
+
+      <!-- Search and Filter Bar -->
+      <div class="filter-bar">
+        <div class="search-wrapper">
+          <iconify-icon icon="lucide:search" class="search-icon"></iconify-icon>
+          <input
+            type="text"
+            class="search-input"
+            [(ngModel)]="searchQuery"
+            [placeholder]="translationService.translate('communities.search.placeholder')"
+            [attr.aria-label]="translationService.translate('communities.search.placeholder')" />
+        </div>
+
+        <div class="sort-wrapper">
+          <iconify-icon icon="lucide:arrow-up-down" class="sort-icon"></iconify-icon>
+          <select
+            class="sort-select"
+            [(ngModel)]="sortBy"
+            [attr.aria-label]="translationService.translate('communities.sort.label')">
+            <option *ngFor="let opt of sortOptions" [value]="opt.value">
+              {{ translationService.translate(opt.labelKey) }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Communities Grid -->
+      <div class="communities-grid" *ngIf="filteredCommunities.length > 0">
+        <app-community-card
+          *ngFor="let community of filteredCommunities; trackBy: trackByCommunityId"
+          [community]="community"
+          (joinClicked)="onJoinCommunity($event)"
+          (viewClicked)="onViewCommunity($event)">
+        </app-community-card>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" *ngIf="filteredCommunities.length === 0">
+        <iconify-icon icon="lucide:users-2" class="empty-icon"></iconify-icon>
+        <p>{{ translationService.translate('communities.empty') }}</p>
+      </div>
+
+    </main>
+  </div>
+</div>
