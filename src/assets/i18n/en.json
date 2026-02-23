@@ -515,7 +515,7 @@
     "createBtn": "Create Community",
     "empty": "No communities found",
     "search": {
-      "placeholder": "Search a community..."
+      "placeholder": "Search for a community..."
     },
     "sort": {
       "label": "Sort by",
@@ -569,7 +569,21 @@
         "category": {
           "label": "Category",
           "placeholder": "Select a category",
-          "error": "Please select a category"
+          "error": "Please select a category",
+          "categories": [
+            "Technology",
+            "Art & Creativity",
+            "Sport",
+            "Cooking",
+            "Culture",
+            "Business",
+            "Education",
+            "Travel",
+            "Health & Wellness",
+            "Music",
+            "Gaming",
+            "Other"
+          ]
         },
         "tags": {
           "label": "Tags",

@@ -569,7 +569,21 @@
         "category": {
           "label": "Catégorie",
           "placeholder": "Sélectionnez une catégorie",
-          "error": "Veuillez sélectionner une catégorie"
+          "error": "Veuillez sélectionner une catégorie",
+          "categories": [
+            "Technologie",
+            "Art & Créativité",
+            "Sport",
+            "Cuisine",
+            "Culture",
+            "Business",
+            "Éducation",
+            "Voyage",
+            "Santé & Bien-être",
+            "Musique",
+            "Jeux",
+            "Autre"
+          ]
         },
         "tags": {
           "label": "Tags",

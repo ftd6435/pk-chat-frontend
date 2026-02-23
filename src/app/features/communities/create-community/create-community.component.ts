@@ -31,20 +31,7 @@ export class CreateCommunityComponent implements OnInit {
 
   communityForm!: FormGroup;
 
-  categories = [
-    'Technologie',
-    'Art & Créativité',
-    'Sport',
-    'Cuisine',
-    'Culture',
-    'Business',
-    'Éducation',
-    'Voyage',
-    'Santé & Bien-être',
-    'Musique',
-    'Jeux',
-    'Autre'
-  ];
+  categories: string[] = [];
 
   communityTypes: { value: CommunityType; labelKey: string; descKey: string; icon: string }[] = [
     { value: 'public', labelKey: 'communities.create.types.public.label', descKey: 'communities.create.types.public.desc', icon: 'lucide:globe' },
@@ -59,6 +46,7 @@ export class CreateCommunityComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.categories = this.translationService.translate('communities.create.fields.category.categories') as unknown as string[];
     this.communityForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
