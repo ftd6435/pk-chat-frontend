@@ -36,6 +36,15 @@ export const routes: Routes = [
     title: 'Découvrir des amis - PK-Chat'
   },
   {
+    path: 'amis/demandes',
+    loadComponent: () => import('./features/friends/friend-requests/friend-requests.component').then(m => m.FriendRequestsComponent),
+    title: 'Demandes d\'amis - PK-Chat'
+  },
+  {
+    path: 'friends/requests',
+    redirectTo: 'amis/demandes'
+  },
+  {
     path: 'configuration-profil',
     loadComponent: () => import('./features/profile/profile-setup/profile-setup.component').then(m => m.ProfileSetupComponent),
     title: 'Configuration du profil - PK-Chat'

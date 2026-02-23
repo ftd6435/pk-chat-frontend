@@ -394,6 +394,28 @@
     "onlineFriends": {
       "title": "Amis en ligne ({{count}})",
       "viewAll": "Voir tous les amis en ligne"
+    },
+    "requests": {
+      "title": "Demandes d'amis",
+      "subtitle": "Gérez vos demandes d'amis reçues et envoyées",
+      "tabs": {
+        "received": "Demandes reçues",
+        "sent": "Demandes envoyées"
+      },
+      "actions": {
+        "accept": "Accepter",
+        "decline": "Refuser",
+        "cancel": "Annuler la demande"
+      },
+      "mutualFriends": "{{count}} amis en commun",
+      "timeAgo": "il y a {{time}}",
+      "time": {
+        "hours": "{{count}}h",
+        "day": "{{count}} jour",
+        "days": "{{count}} jours",
+        "week": "{{count}} semaine",
+        "weeks": "{{count}} semaines"
+      }
     }
   },
   "findFriends": {

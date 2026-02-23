@@ -1,0 +1,164 @@
+<div class="friend-requests-page">
+
+  <!-- Dashboard Sidebar -->
+  <app-dashboard-sidebar [activeItem]="'friends'"></app-dashboard-sidebar>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <div class="page-header-section">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <span>{{ translationService.translate('friends.title') }}</span>
+        <iconify-icon icon="lucide:chevron-right" class="chevron-icon"></iconify-icon>
+        <span>{{ translationService.translate('friends.requests.title') }}</span>
+      </div>
+
+      <h1>{{ translationService.translate('friends.requests.title') }}</h1>
+      <p class="subtitle">{{ translationService.translate('friends.requests.subtitle') }}</p>
+
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tabs-bar" role="tablist">
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'received'"
+        role="tab"
+        [attr.aria-selected]="activeTab === 'received'"
+        (click)="setActiveTab('received')">
+        {{ translationService.translate('friends.requests.tabs.received') }}
+        <span class="tab-badge" *ngIf="receivedRequests.length > 0">{{ receivedRequests.length }}</span>
+      </button>
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'sent'"
+        role="tab"
+        [attr.aria-selected]="activeTab === 'sent'"
+        (click)="setActiveTab('sent')">
+        {{ translationService.translate('friends.requests.tabs.sent') }}
+        <span class="tab-badge" *ngIf="sentRequests.length > 0">{{ sentRequests.length }}</span>
+      </button>
+    </div>
+
+    <!-- Received Requests -->
+    <div *ngIf="activeTab === 'received'" class="requests-grid" role="tabpanel">
+      <div
+        *ngFor="let request of receivedRequests; trackBy: trackByRequestId"
+        class="request-card"
+        [attr.aria-label]="'Friend request from ' + request.user.name">
+
+        <!-- Avatar -->
+        <div class="avatar-wrapper">
+          <img
+            [src]="request.user.avatar"
+            [alt]="request.user.name"
+            class="user-avatar" />
+          <span
+            class="online-indicator"
+            [class.online]="request.user.isOnline"
+            [attr.aria-label]="request.user.isOnline ? 'Online' : 'Offline'">
+          </span>
+        </div>
+
+        <!-- User Info -->
+        <div class="user-info">
+          <p class="user-name">{{ request.user.name }}</p>
+
+          <!-- Mutual Friends -->
+          <div class="mutual-friends">
+            <div class="mutual-avatars">
+              <img
+                *ngFor="let avatar of request.mutualFriends.avatars"
+                [src]="avatar"
+                [alt]="'Mutual friend'"
+                class="mutual-avatar" />
+            </div>
+            <span class="mutual-count">{{ getMutualFriendsText(request.mutualFriends.count) }}</span>
+          </div>
+
+          <!-- Time -->
+          <span class="time-ago">
+            {{ translationService.translate('friends.requests.timeAgo').replace('{{time}}', getTimeAgo(request.requestedAt)) }}
+          </span>
+        </div>
+
+        <!-- Actions -->
+        <div class="card-actions">
+          <button
+            class="btn-accept"
+            (click)="acceptFriendRequest(request.id)"
+            [attr.aria-label]="translationService.translate('friends.requests.actions.accept') + ' ' + request.user.name">
+            {{ translationService.translate('friends.requests.actions.accept') }}
+          </button>
+          <button
+            class="btn-decline"
+            (click)="declineFriendRequest(request.id)"
+            [attr.aria-label]="translationService.translate('friends.requests.actions.decline') + ' ' + request.user.name">
+            {{ translationService.translate('friends.requests.actions.decline') }}
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sent Requests -->
+    <div *ngIf="activeTab === 'sent'" class="requests-grid" role="tabpanel">
+      <div
+        *ngFor="let request of sentRequests; trackBy: trackByRequestId"
+        class="request-card"
+        [attr.aria-label]="'Sent request to ' + request.user.name">
+
+        <!-- Avatar -->
+        <div class="avatar-wrapper">
+          <img
+            [src]="request.user.avatar"
+            [alt]="request.user.name"
+            class="user-avatar" />
+          <span
+            class="online-indicator"
+            [class.online]="request.user.isOnline"
+            [attr.aria-label]="request.user.isOnline ? 'Online' : 'Offline'">
+          </span>
+        </div>
+
+        <!-- User Info -->
+        <div class="user-info">
+          <p class="user-name">{{ request.user.name }}</p>
+
+          <!-- Mutual Friends -->
+          <div class="mutual-friends">
+            <div class="mutual-avatars">
+              <img
+                *ngFor="let avatar of request.mutualFriends.avatars"
+                [src]="avatar"
+                [alt]="'Mutual friend'"
+                class="mutual-avatar" />
+            </div>
+            <span class="mutual-count">{{ getMutualFriendsText(request.mutualFriends.count) }}</span>
+          </div>
+
+          <!-- Time -->
+          <span class="time-ago">
+            {{ translationService.translate('friends.requests.timeAgo').replace('{{time}}', getTimeAgo(request.requestedAt)) }}
+          </span>
+        </div>
+
+        <!-- Cancel action for sent requests -->
+        <div class="card-actions">
+          <button
+            class="btn-decline"
+            (click)="declineFriendRequest(request.id)"
+            [attr.aria-label]="translationService.translate('friends.requests.actions.cancel') + ' ' + request.user.name">
+            {{ translationService.translate('friends.requests.actions.decline') }}
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+</div>

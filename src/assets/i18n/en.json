@@ -394,6 +394,28 @@
     "onlineFriends": {
       "title": "Online Friends ({{count}})",
       "viewAll": "View all online friends"
+    },
+    "requests": {
+      "title": "Friend Requests",
+      "subtitle": "Manage your incoming and outgoing friend requests",
+      "tabs": {
+        "received": "Received Requests",
+        "sent": "Sent Requests"
+      },
+      "actions": {
+        "accept": "Accept",
+        "decline": "Decline",
+        "cancel": "Cancel request"
+      },
+      "mutualFriends": "{{count}} mutual friends",
+      "timeAgo": "{{time}} ago",
+      "time": {
+        "hours": "{{count}}h",
+        "day": "{{count}} day",
+        "days": "{{count}} days",
+        "week": "{{count}} week",
+        "weeks": "{{count}} weeks"
+      }
     }
   },
   "findFriends": {
