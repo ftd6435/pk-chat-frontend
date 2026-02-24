@@ -508,5 +508,109 @@
       "manage": "Manage",
       "settings": "Security Settings"
     }
+  },
+  "communities": {
+    "title": "My Communities",
+    "subtitle": "Join communities and share your interests",
+    "createBtn": "Create Community",
+    "empty": "No communities found",
+    "search": {
+      "placeholder": "Search for a community..."
+    },
+    "sort": {
+      "label": "Sort by",
+      "recent": "Recently active",
+      "members": "Member count",
+      "activity": "Activity",
+      "name": "Name"
+    },
+    "card": {
+      "members": "{{count}} members",
+      "join": "Join",
+      "view": "View",
+      "activity": {
+        "high": "High activity",
+        "medium": "Medium activity",
+        "low": "Low activity"
+      }
+    },
+    "create": {
+      "title": "Create a new community",
+      "subtitle": "Set up your community and invite members",
+      "steps": {
+        "step1": {
+          "label": "Community Details",
+          "desc": "Name, description, icon"
+        },
+        "step2": {
+          "label": "Group Configuration",
+          "desc": "Type, category, tags"
+        }
+      },
+      "fields": {
+        "icon": {
+          "label": "Community Icon",
+          "upload": "Add an icon",
+          "remove": "Remove icon"
+        },
+        "name": {
+          "label": "Community Name",
+          "placeholder": "E.g. Angular Developers",
+          "error": "Name must be between 3 and 60 characters"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Describe your community...",
+          "error": "Description must be between 10 and 500 characters"
+        },
+        "type": {
+          "label": "Community Type"
+        },
+        "category": {
+          "label": "Category",
+          "placeholder": "Select a category",
+          "error": "Please select a category",
+          "categories": [
+            "Technology",
+            "Art & Creativity",
+            "Sport",
+            "Cooking",
+            "Culture",
+            "Business",
+            "Education",
+            "Travel",
+            "Health & Wellness",
+            "Music",
+            "Gaming",
+            "Other"
+          ]
+        },
+        "tags": {
+          "label": "Tags",
+          "placeholder": "Add a tag and press Enter",
+          "hint": "Press Enter to add a tag (max 10)"
+        }
+      },
+      "types": {
+        "public": {
+          "label": "Public",
+          "desc": "Anyone can see and join this community"
+        },
+        "private": {
+          "label": "Private",
+          "desc": "Visible only to members, by invitation"
+        },
+        "secret": {
+          "label": "Secret",
+          "desc": "Hidden from search, invitation only"
+        }
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "submit": "Create community"
+      }
+    }
   }
 }

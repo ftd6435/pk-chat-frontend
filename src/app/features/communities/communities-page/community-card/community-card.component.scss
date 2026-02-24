@@ -1,0 +1,155 @@
+@import '../../../../../styles/variables';
+
+.community-card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-standard;
+  padding: $spacing-comfortable;
+  background: $bg-container-primary;
+  border-radius: $radius-large;
+  box-shadow: $shadow-moderate;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: $shadow-pronounced;
+    transform: translateY(-2px);
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.community-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-medium;
+  background: rgba(26, 43, 74, 0.08);
+  color: $primary-base;
+
+  iconify-icon {
+    font-size: 28px;
+  }
+}
+
+.activity-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+
+  &.activity-high {
+    background: $status-online;
+  }
+
+  &.activity-medium {
+    background: $accent-gold;
+  }
+
+  &.activity-low {
+    background: $status-offline;
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-tight;
+  flex: 1;
+}
+
+.community-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+}
+
+.community-description {
+  font-size: 14px;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.community-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-tight;
+  flex-wrap: wrap;
+  margin-top: $spacing-tight;
+}
+
+.members-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: $text-secondary;
+
+  iconify-icon {
+    font-size: 14px;
+  }
+}
+
+.category-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: $primary-base;
+  background: rgba(26, 43, 74, 0.08);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.card-footer {
+  margin-top: auto;
+}
+
+.btn-join,
+.btn-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-tight;
+  width: 100%;
+  padding: 10px $spacing-standard;
+  border-radius: $radius-small;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s;
+
+  iconify-icon {
+    font-size: 16px;
+  }
+}
+
+.btn-join {
+  background: $primary-base;
+  color: #fff;
+
+  &:hover {
+    background: $primary-lighter;
+    box-shadow: $shadow-subtle;
+  }
+}
+
+.btn-view {
+  background: rgba(0, 0, 0, 0.06);
+  color: $text-primary;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

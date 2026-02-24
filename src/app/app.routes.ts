@@ -45,6 +45,24 @@ export const routes: Routes = [
     redirectTo: 'amis/demandes'
   },
   {
+    path: 'communautes',
+    loadComponent: () => import('./features/communities/communities-page/communities-page.component').then(m => m.CommunitiesPageComponent),
+    title: 'Mes Communautés - PK-Chat'
+  },
+  {
+    path: 'communautes/creer',
+    loadComponent: () => import('./features/communities/create-community/create-community.component').then(m => m.CreateCommunityComponent),
+    title: 'Créer une Communauté - PK-Chat'
+  },
+  {
+    path: 'communities',
+    redirectTo: 'communautes'
+  },
+  {
+    path: 'communities/create',
+    redirectTo: 'communautes/creer'
+  },
+  {
     path: 'configuration-profil',
     loadComponent: () => import('./features/profile/profile-setup/profile-setup.component').then(m => m.ProfileSetupComponent),
     title: 'Configuration du profil - PK-Chat'
